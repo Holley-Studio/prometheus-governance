@@ -1,0 +1,21 @@
+{
+  "name": "prometheus-helper",
+  "private": true,
+  "description": "Monorepo for prometheus-governance: npm package, GitHub Action, and VS Code extension.",
+  "scripts": {
+    "build": "npm run build --workspace=prometheus && npm run build --workspace=actions/pr-review && npm run build --workspace=extensions/vscode",
+    "build:lib": "npm run build --workspace=prometheus",
+    "build:action": "npm run build --workspace=actions/pr-review",
+    "build:ext": "npm run build --workspace=extensions/vscode",
+    "typecheck": "npm run typecheck --workspace=prometheus && npm run typecheck --workspace=actions/pr-review && npm run typecheck --workspace=extensions/vscode",
+    "test": "npm test --workspace=prometheus",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "npm run build:lib && changeset publish"
+  },
+  "workspaces": [
+    "prometheus",
+    "actions/pr-review",
+    "extensions/vscode"
+  ]
+}
