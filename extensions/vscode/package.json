@@ -1,5 +1,5 @@
 {
-  "name": "prometheus-governance",
+  "name": "prometheus-governance-vscode",
   "displayName": "Prometheus Governance",
   "description": "Real-time AI repo governance — inline findings, health scores, and adapter sync for Claude, Gemini, Cursor, Copilot, and Codex.",
   "version": "1.0.0",
