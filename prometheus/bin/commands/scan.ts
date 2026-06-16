@@ -65,6 +65,22 @@ export function formatScanConsole(scan: ScanResult, config: PrometheusConfig): s
     lines.push('');
   }
 
+  if (scan.languages && scan.languages.length > 0) {
+    lines.push('Languages detected:');
+    for (const lang of scan.languages) {
+      const namePad  = lang.language.padEnd(14);
+      const filePart = `${lang.fileCount} file${lang.fileCount === 1 ? '' : 's'}`.padStart(10);
+      const linePart = `${lang.lineCount.toLocaleString()} lines`.padStart(12);
+      lines.push(`  ${namePad}${filePart}${linePart}`);
+    }
+    lines.push('');
+  }
+
+  if (scan.detectedStacks && scan.detectedStacks.length > 0) {
+    lines.push(`Detected stacks:  ${scan.detectedStacks.join(', ')}`);
+    lines.push('');
+  }
+
   lines.push(`Report written to .prometheus/report.json`);
   return lines.join('\n');
 }
@@ -113,9 +129,14 @@ export async function cmdScan(argv: string[]): Promise<void> {
   const reportDir = dirname(reportPath);
   if (!existsSync(reportDir)) mkdirSync(reportDir, { recursive: true });
 
-  const existing: Record<string, JsonValue> = existsSync(reportPath)
-    ? (JSON.parse(readFileSync(reportPath, 'utf8')) as Record<string, JsonValue>)
-    : {};
+  let existing: Record<string, JsonValue> = {};
+  if (existsSync(reportPath)) {
+    try {
+      existing = JSON.parse(readFileSync(reportPath, 'utf8')) as Record<string, JsonValue>;
+    } catch {
+      // Corrupted or truncated report.json — start fresh rather than crash
+    }
+  }
 
   const scanData = scan as unknown as Record<string, JsonValue>;
   const generatedKeys = Object.keys(scanData);

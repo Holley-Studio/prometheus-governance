@@ -40,6 +40,18 @@ import { LOG_RULES } from './logging';
 import { CSS_RULES } from './css';
 import { VIBE_CODING_RULES } from './vibe-coding';
 import { SLOPSQUATTING_RULES } from './slopsquatting';
+import { PYTHON_RULES } from './python';
+import { DJANGO_RULES } from './django';
+import { GO_RULES } from './go';
+import { RUBY_RULES } from './ruby';
+import { PHP_RULES } from './php';
+import { JAVA_RULES } from './java';
+import { RUST_RULES } from './rust';
+import { CSHARP_RULES } from './csharp';
+import { DOCKERFILE_RULES } from './dockerfile';
+import { GITHUB_ACTIONS_RULES } from './github-actions';
+import { TERRAFORM_RULES } from './terraform';
+import { DESIGN_RULES } from './design';
 
 // ── Local helpers (used inside detect() methods) ──────────────────────────────
 
@@ -610,4 +622,17 @@ export const PROMETHEUS_RULES: PrometheusRule[] = [
   // ── AI-era additions ──────────────────────────────────────────────────────
   ...VIBE_CODING_RULES,
   ...SLOPSQUATTING_RULES,
+  // ── Language packs ────────────────────────────────────────────────────────
+  ...PYTHON_RULES,
+  ...DJANGO_RULES,
+  ...GO_RULES,
+  ...RUBY_RULES,
+  ...PHP_RULES,
+  ...JAVA_RULES,
+  ...RUST_RULES,
+  ...CSHARP_RULES,
+  ...DOCKERFILE_RULES,
+  ...GITHUB_ACTIONS_RULES,
+  ...TERRAFORM_RULES,
+  ...DESIGN_RULES,
 ];

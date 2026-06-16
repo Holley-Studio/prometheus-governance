@@ -28,7 +28,11 @@ import { cmdFix } from './commands/fix.ts';
 import { cmdUpdate } from './commands/update.ts';
 import { cmdHooks } from './commands/hooks.ts';
 import { cmdWatch } from './commands/watch.ts';
+import { cmdDiff } from './commands/diff.ts';
 import { cmdReport } from './commands/report.ts';
+import { cmdAiLint } from './commands/ai-lint.ts';
+import { cmdPackCreate } from './commands/pack-create.ts';
+import { cmdPackPublish } from './commands/pack-publish.ts';
 
 const COMMANDS: Record<string, (argv: string[]) => Promise<void>> = {
   init: cmdInit,
@@ -48,12 +52,17 @@ const COMMANDS: Record<string, (argv: string[]) => Promise<void>> = {
   metrics: cmdMetrics,
   'pack:list': (argv) => cmdPacks('list', argv),
   'pack:validate': (argv) => cmdPacks('validate', argv),
+  'pack:create': cmdPackCreate,
+  'pack:publish': cmdPackPublish,
   health: cmdHealth,
   ci: cmdCiGate,
   fix: cmdFix,
   report: cmdReport,
+  'ai-lint': cmdAiLint,
+  'ai-lint:init': (argv) => cmdAiLint(['--from-ai-config', ...argv]),
   update: cmdUpdate,
   watch: cmdWatch,
+  diff: cmdDiff,
   'hooks': (argv) => cmdHooks(['install', ...argv]),
   'hooks:install':   (argv) => cmdHooks(['install',   ...argv]),
   'hooks:uninstall': (argv) => cmdHooks(['uninstall', ...argv]),
@@ -80,6 +89,7 @@ Prometheus — AI Repo Governance
 SETUP
   init                     Scaffold .prometheus/ governance folder
   init --interactive        Interactive wizard — detect framework, pick adapters, configure CI
+  init --from-ai-config    Read CLAUDE.md/.cursorrules and generate .prometheus/config.json
   scan                     Analyse repo structure → .prometheus/report.json
   adapters                 Regenerate all AI adapter files (CLAUDE.md, etc.)
   update                   Convenience: scan + adapters + drift check in one command
@@ -116,6 +126,15 @@ BASELINES  (suppress known debt, focus CI on new issues)
   baseline:update          Update baseline with resolved/new findings
   baseline:report          Show baselined findings
 
+DIFF
+  diff                     Compare stored findings baseline vs. current scan
+    --baseline=<path>        Path to baseline findings JSON (default: .prometheus/findings.json)
+    --base=<branch>          Only review files changed vs. <branch>
+    --all                    Review all files (default: scan-based checks only)
+    --fail-on=<severity>     Exit 1 when new findings meet this severity (default: BLOCKER)
+    --save                   Save current findings as the new baseline after diffing
+    --json                   Machine-readable JSON output
+
 DRIFT DETECTION
   drift                    Detect stale adapters and missing required files
   drift --json
@@ -129,6 +148,13 @@ GOVERNANCE HEALTH
     --no-baseline
     --health-threshold=<n>
   ci --json
+
+AI BEHAVIOR FILE LINTER
+  ai-lint                  Lint CLAUDE.md/.cursorrules/GEMINI.md for governance gaps
+    --json                   Machine-readable JSON
+    --markdown               Markdown report
+  ai-lint --from-ai-config Detect stack from AI config and generate .prometheus/config.json
+    --dry-run                Preview without writing
 
 SUPPRESSIONS
   suppressions:audit       Find expired, missing-reason, or blanket suppressions
@@ -155,6 +181,14 @@ METRICS
 PACKS
   pack:list                Show installed rule packs
   pack:validate            Validate pack manifests
+  pack:create <@scope/name>  Scaffold a new pack with rules/, agents/, skills/
+    --author="My Org"        Set author field in pack.json
+    --dry-run                Preview files without writing
+  pack:publish [name]       Compile, validate, and npm publish a pack
+    --compile                  Run tsup to compile rules/index.ts first
+    --dry-run                  Preview without publishing
+    --access=<level>           npm publish access (default: public)
+    --tag=<tag>                npm dist-tag (e.g. --tag=beta)
 
 CATALOG
   catalog:list             List all agents and skills

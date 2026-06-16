@@ -1,4 +1,5 @@
 import { defineConfig } from 'tsup';
+import { cpSync, existsSync } from 'node:fs';
 
 export default defineConfig([
   {
@@ -15,6 +16,13 @@ export default defineConfig([
     tsconfig: 'tsconfig.build.json',
     // Node built-ins are not bundled (they're external by default in tsup)
     platform: 'node',
+    async onSuccess() {
+      // Copy built-in JSON preset files into dist/ so they're available at runtime.
+      // config.ts resolves preset paths relative to import.meta.url (i.e., dist/).
+      if (existsSync('presets')) {
+        cpSync('presets', 'dist/presets', { recursive: true });
+      }
+    },
   },
   {
     // ── CLI binary ────────────────────────────────────────────────────────────

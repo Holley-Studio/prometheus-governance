@@ -3,8 +3,139 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prometheus — AI Code Governance</title>
-  <meta name="description" content="505 governance rules for AI-era development. CLI, GitHub Action, and VS Code extension. Zero config. Built for Claude, Cursor, Copilot, and every AI tool in your stack." />
+  <title>Prometheus — AI Code Governance | 757 Rules for Claude, Cursor & Copilot</title>
+  <meta name="description" content="Prometheus catches what AI misses. 757 governance rules for prompt injection, N+1 queries, missing validation, and 30+ more AI failure patterns. CLI, GitHub Action, and VS Code extension. Zero config." />
+  <meta name="keywords" content="AI code governance, AI code review, Claude code rules, Cursor rules, GitHub Copilot governance, prompt injection detection, vibe coding safety, TypeScript security, code review automation, AI safety, LLM code quality, prometheus-governance, npm package, CI code review" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#050408" />
+  <meta name="author" content="Holley Studios" />
+
+  <!-- ── Canonical ──────────────────────────────────────────────────── -->
+  <link rel="canonical" href="https://github.com/TenticleTim/prometheus-fire" />
+
+  <!-- ── Favicon ────────────────────────────────────────────────────── -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 90'%3E%3Cpath d='M40 4 C62 4 72 14 72 25 L72 48 Q72 70 40 86 Q8 70 8 48 L8 25 C8 14 18 4 40 4 Z' stroke='%23C9A84C' stroke-width='2.8' fill='none'/%3E%3Cpath d='M40 39 C36 32 31 25 34 15 C36 10 39 8 37 5 C45 10 47 22 42 31 C47 23 48 14 45 9 C52 20 50 32 44 39 Z' fill='%23F5C842'/%3E%3C/svg%3E" />
+
+  <!-- ── Open Graph ──────────────────────────────────────────────────── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Prometheus Governance" />
+  <meta property="og:title" content="Prometheus — AI Code Governance | 757 Rules" />
+  <meta property="og:description" content="Catches what AI misses. 757 governance rules for prompt injection, N+1 queries, missing validation, and 30+ more AI failure patterns. Zero config. Works with Claude, Cursor, Copilot, and Gemini." />
+  <meta property="og:url" content="https://github.com/TenticleTim/prometheus-fire" />
+  <meta property="og:image" content="https://opengraph.githubassets.com/1/TenticleTim/prometheus-fire" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- ── Twitter / X Card ───────────────────────────────────────────── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prometheus — AI Code Governance | 757 Rules" />
+  <meta name="twitter:description" content="Catches what AI misses. 757 rules for prompt injection, N+1 queries, missing validation, and 30+ AI failure patterns. Zero config. Works with Claude, Cursor, Copilot." />
+  <meta name="twitter:image" content="https://opengraph.githubassets.com/1/TenticleTim/prometheus-fire" />
+
+  <!-- ── Structured Data: SoftwareApplication ──────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Prometheus Governance",
+    "alternateName": "prometheus-governance",
+    "description": "AI-era code governance tool with 757 rules for detecting prompt injection, N+1 queries, missing validation, hardcoded secrets, and 30+ AI failure patterns. Works as a CLI, GitHub Action, and VS Code extension.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Linux, macOS, Windows",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "downloadUrl": "https://www.npmjs.com/package/prometheus-governance",
+    "installUrl": "https://www.npmjs.com/package/prometheus-governance",
+    "softwareVersion": "1.0.0",
+    "author": {
+      "@type": "Organization",
+      "name": "Holley Studios"
+    },
+    "keywords": "AI governance, code review, Claude, Cursor, Copilot, prompt injection, TypeScript, security",
+    "featureList": [
+      "757 governance rules across 12 ecosystems",
+      "Prompt injection detection",
+      "N+1 query detection",
+      "Missing input validation detection",
+      "Hardcoded secret detection",
+      "AI adapter generation for Claude, Gemini, Cursor, Copilot, Codex",
+      "GitHub Actions CI integration",
+      "VS Code extension support",
+      "Zero configuration required"
+    ]
+  }
+  </script>
+
+  <!-- ── Structured Data: FAQ (AEO / Answer Engine Optimization) ───── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Prometheus Governance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prometheus Governance is an open-source AI code governance tool with 757 rules that catches the mistakes AI coding assistants (Claude, Cursor, GitHub Copilot, Gemini) predictably make — including prompt injection vulnerabilities, N+1 database queries, missing input validation, hardcoded secrets, and design system drift. It runs as a CLI, GitHub Action, or VS Code extension with zero configuration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Prometheus work with Claude, Cursor, and Copilot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prometheus generates AI adapter files (CLAUDE.md, .cursorrules, .github/copilot-instructions.md, AGENTS.md, GEMINI.md, Codex instructions) that embed all 757 governance rules directly into your AI tool's context. Every code generation session runs against the rules automatically. Run 'prometheus adapters' to generate all adapter files at once."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What programming languages does Prometheus support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prometheus supports 12 ecosystems: JavaScript/TypeScript (Next.js, React, Node.js, tRPC, Prisma, Zod), Python, Django, Java/Spring, C#/.NET, PHP/Laravel, Ruby/Rails, Go, Rust, and Infrastructure-as-Code (Dockerfile, Terraform, GitHub Actions). New languages are added as rule packs with zero config changes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What AI coding mistakes does Prometheus catch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prometheus catches the most common AI coding failures: prompt injection (user input concatenated into LLM prompts), missing request body validation (no Zod schema on POST routes), N+1 database queries (Prisma calls inside loops), hardcoded secrets and API keys, SQL injection in raw queries, missing CSRF protection, insecure direct object references, design system token violations, and 30+ more categories of predictable AI mistakes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I install Prometheus Governance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Install with npm: 'npm install prometheus-governance'. Then run 'prometheus init' to scaffold the governance folder, 'prometheus scan' to analyze your repository, 'prometheus adapters' to generate AI tool configuration files, and 'prometheus review' before every commit or PR. Add it to your CI pipeline with the GitHub Actions workflow that 'prometheus init' generates automatically."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Prometheus a linter or a code review tool?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prometheus is neither a traditional linter nor a generic code reviewer. It is a governance layer specifically designed for AI-assisted development. While linters check code style and syntax, Prometheus detects the semantic patterns that AI tools specifically get wrong — security vulnerabilities, architectural anti-patterns, and domain-specific misuse that only emerge when AI generates code at scale."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is vibe coding and why is it dangerous?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vibe coding is the practice of rapidly generating large amounts of code using AI tools without careful review of each output. It produces fast results but accumulates security vulnerabilities, architectural anti-patterns, and design drift. Prometheus has 25 dedicated vibe-coding rules that catch the patterns most likely to appear when developers ship AI-generated code without governance."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ── Preconnect & fonts ──────────────────────────────────────────── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -20,7 +151,7 @@
       --cream:    #F5F0E8;
       --t1:       #F5F5F7;
       --t2:       rgba(255,255,255,.55);
-      --t3:       rgba(255,255,255,.22);
+      --t3:       rgba(255,255,255,.45);
       --border:   rgba(255,255,255,.07);
       --border-h: rgba(201,168,76,.2);
       /* Apple material easing — used for UI elements */
@@ -76,7 +207,7 @@
 
     /* ─── LAYOUT ─────────────────────────────────────────────────── */
     .wrap    { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
-    .wrap-sm { max-width: 620px;  margin: 0 auto; padding: 0 48px; }
+    .wrap-sm { max-width: 700px;  margin: 0 auto; padding: 0 48px; }
     .hr { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.06) 15%, rgba(255,255,255,.06) 85%, transparent); }
 
     /* ─── EYEBROW / SECTION LABELS ───────────────────────────────── */
@@ -142,7 +273,7 @@
     }
     .hero-bloom {
       position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-      width: 800px; height: 380px;
+      width: min(800px, 100%); height: 380px;
       background: radial-gradient(ellipse at 50% 100%, rgba(240,128,32,.14) 0%, rgba(200,56,8,.06) 42%, transparent 72%);
       pointer-events: none; z-index: 0;
     }
@@ -482,7 +613,7 @@
       letter-spacing: .02em;
     }
     .btn-fire { background: var(--gold); color: #0A0806; border-color: var(--gold); }
-    .btn-fire:hover { background: #D4B660; border-color: #D4B660; transform: scale(1.02); }
+    .btn-fire:hover { background: #D4B700; border-color: #D4B700; transform: scale(1.02); }
     .btn-ghost { background: transparent; color: rgba(255,255,255,.7); border-color: rgba(255,255,255,.15); }
     .btn-ghost:hover { color: rgba(255,255,255,.95); border-color: rgba(255,255,255,.3); }
 
@@ -497,6 +628,123 @@
     .f-links { display: flex; gap: 24px; }
     .f-links a { font-size: 13px; color: rgba(255,255,255,.35); transition: color 200ms ease; }
     .f-links a:hover { color: rgba(255,255,255,.7); }
+
+    /* ─── LANGUAGE COVERAGE ─────────────────────────────────────── */
+    .langs-s { padding: 100px 0; }
+    .langs-hd { max-width: 620px; margin-bottom: 52px; }
+    .langs-hd h2 {
+      font-family: 'Cinzel', serif; font-size: clamp(28px,4vw,50px);
+      font-weight: 500; letter-spacing: -.01em; line-height: 1.18;
+      margin-bottom: 18px;
+    }
+    .langs-hd p { font-size: 15px; color: var(--t2); font-weight: 300; line-height: 1.68; }
+    .langs-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .lang-card {
+      background: var(--card);
+      border: 1px solid rgba(201,168,76,.15);
+      border-radius: 12px; padding: 24px;
+      cursor: default;
+      transition: transform 280ms var(--ease), border-color 280ms var(--ease), background 280ms var(--ease);
+    }
+    .lang-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(201,168,76,.32);
+      background: var(--card-h);
+    }
+
+    .lang-top {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; margin-bottom: 12px; flex-wrap: wrap;
+    }
+    .lang-name {
+      font-size: 15px; font-weight: 500; color: var(--t1); line-height: 1.2;
+    }
+    .lang-badge {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px;
+      font-weight: 500; letter-spacing: .04em;
+      color: var(--gold); background: rgba(201,168,76,.1);
+      border: 1px solid rgba(201,168,76,.22);
+      padding: 3px 9px; border-radius: 980px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .lang-desc {
+      font-size: 13px; color: var(--t2); line-height: 1.6; font-weight: 300;
+    }
+
+    [data-d="5"] { transition-delay: .50s; }
+    [data-d="6"] { transition-delay: .60s; }
+    [data-d="7"] { transition-delay: .70s; }
+    [data-d="8"] { transition-delay: .80s; }
+
+    /* ─── PROBLEMS SECTION ──────────────────────────────────────── */
+    .problems-s { padding: 100px 0; }
+    .problems-hd { max-width: 680px; margin-bottom: 52px; }
+    .problems-hd h2 {
+      font-family: 'Cinzel', serif; font-size: clamp(28px,4vw,50px);
+      font-weight: 500; letter-spacing: -.01em; line-height: 1.18;
+      margin-bottom: 18px;
+    }
+    .problems-hd p { font-size: 15px; color: var(--t2); font-weight: 300; line-height: 1.68; }
+
+    .prob-card {
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-top: 1px solid rgba(201,168,76,.15);
+      border-radius: 16px; padding: 32px 36px;
+      cursor: default;
+      transition: all 300ms var(--ease);
+    }
+    .prob-card:hover {
+      border-color: rgba(201,168,76,.2);
+      border-top-color: rgba(201,168,76,.35);
+      background: rgba(255,255,255,.05);
+      transform: translateY(-2px);
+    }
+
+    .prob-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 3px 10px; border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace; font-size: 10px;
+      font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: 16px; width: fit-content;
+    }
+    .pb-blocker { background: rgba(255,80,80,.1); color: #FF6B6B; border: 1px solid rgba(255,80,80,.18); }
+    .pb-high    { background: rgba(255,150,60,.1); color: #FFA94D; border: 1px solid rgba(255,150,60,.18); }
+
+    .prob-title {
+      font-family: 'Cinzel', serif; font-size: 18px; font-weight: 500;
+      color: var(--cream); margin-bottom: 8px; letter-spacing: -.01em;
+    }
+    .prob-desc {
+      font-size: 14px; color: var(--t2); line-height: 1.65;
+      font-weight: 300; margin-bottom: 20px;
+    }
+
+    .prob-code {
+      background: rgba(0,0,0,.5);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 8px; padding: 16px 18px;
+      font-family: 'SF Mono', 'JetBrains Mono', monospace;
+      font-size: 11.5px; line-height: 1.75;
+      color: rgba(255,255,255,.45); overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .prob-code .pc-bad  { color: rgba(255,255,255,.65); }
+    .prob-code .pc-flag { color: #FF6B6B; }
+    .prob-code .pc-rule { color: rgba(201,168,76,.65); }
+    .prob-code .pc-dim  { color: rgba(255,255,255,.25); }
+
+    .prob-rule-id {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px;
+      letter-spacing: .1em; color: rgba(201,168,76,.5);
+      margin-top: auto; padding-top: 4px;
+    }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────────── */
     @media(max-width:860px){
@@ -518,13 +766,16 @@
 </head>
 <body>
 
+<!-- ── Skip navigation (accessibility) ───────────────────────────────── -->
+<a href="#main-content" style="position:absolute;left:-9999px;top:0;z-index:9999;padding:8px 16px;background:var(--gold);color:#000;font-size:14px;font-weight:600" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Skip to main content</a>
+
 <!-- ── Global background fire canvas ─────────────────────────────────── -->
 <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
 <!-- ── 1. NAV ─────────────────────────────────────────────────────────── -->
 <nav class="nav" id="nav">
   <div class="nav-i">
-    <a href="#" class="nav-logo">
+    <a href="/" aria-label="Prometheus Governance — home" class="nav-logo">
       <svg viewBox="0 0 80 90" fill="none" aria-hidden="true">
         <path d="M40 4 C62 4 72 14 72 25 L72 48 Q72 70 40 86 Q8 70 8 48 L8 25 C8 14 18 4 40 4 Z"
           stroke="currentColor" stroke-width="2.8" fill="none" stroke-linejoin="round"/>
@@ -539,15 +790,16 @@
     <div class="nav-links">
       <a href="#tools">Tools</a>
       <a href="#rules">Rules</a>
+      <a href="#languages">Languages</a>
       <a href="#how">How It Works</a>
-      <a href="https://github.com/TenticleTim/prometheus-fire" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://github.com/TenticleTim/prometheus-fire" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     </div>
-    <a href="https://github.com/TenticleTim/prometheus-fire" target="_blank" rel="noopener" class="nav-cta">Get Prometheus</a>
+    <a href="https://github.com/TenticleTim/prometheus-fire" target="_blank" rel="noopener noreferrer" class="nav-cta">Get Prometheus</a>
   </div>
 </nav>
 
 <!-- ── HERO ───────────────────────────────────────────────────────────── -->
-<section class="hero">
+<section class="hero" id="main-content">
   <canvas id="fire-canvas" aria-hidden="true"></canvas>
   <div class="hero-bloom"></div>
 
@@ -607,7 +859,7 @@
 
     <span class="hero-sup">Open Source · Holley Studios · Zero Config</span>
     <h1 id="htitle">PROMETHEUS</h1>
-    <p class="hero-sub">Code governance for the age of AI.<br>505 rules. Every line watched. Nothing slips.</p>
+    <p class="hero-sub">Your AI writes fast. Prometheus makes sure<br>it writes <em style="font-style:normal;color:var(--cream)">right</em>. 757 rules. Nothing slips.</p>
 
     <!-- 3. Elevated npm command block -->
     <div class="hero-install">
@@ -616,7 +868,7 @@
         <span class="hi-pkg">install prometheus-governance</span>
       </div>
       <div class="hi-div"></div>
-      <button class="hi-b" onclick="
+      <button class="hi-b" aria-label="Copy install command to clipboard" onclick="
         navigator.clipboard.writeText('npm install prometheus-governance');
         const b = this;
         const prev = b.textContent;
@@ -628,9 +880,9 @@
 
     <!-- 4. Stats as grid, no dividers -->
     <div class="hero-stats">
-      <div><div class="hs-n">505</div><div class="hs-l">Rules</div></div>
+      <div><div class="hs-n">757</div><div class="hs-l">Rules</div></div>
       <div class="hs-div"></div>
-      <div><div class="hs-n">17</div><div class="hs-l">Categories</div></div>
+      <div><div class="hs-n">12</div><div class="hs-l">Ecosystems</div></div>
       <div class="hs-div"></div>
       <div><div class="hs-n">3</div><div class="hs-l">Tools</div></div>
       <div class="hs-div"></div>
@@ -651,13 +903,84 @@
   <div class="wrap">
     <div class="stmt-inner">
       <div class="stmt-label" data-r>The problem<br>with AI code</div>
-      <blockquote class="stmt-q" data-r data-d="1">
-        AI tools write code <em>faster than humans can review it.</em>
-        Without governance, every pull request is a gamble —
-        security holes, broken patterns, hallucinated logic
-        <em>shipping to production.</em>
-        Prometheus closes that gap.
-      </blockquote>
+      <p class="stmt-q" data-r data-d="1">
+        Claude generated your API route in four seconds.
+        It accepts unvalidated input.
+        It queries the database in a loop.
+        It concatenates user content directly into a prompt.
+        <em>It looks right. It passes code review.</em>
+        Prometheus knows the difference.
+      </p>
+    </div>
+  </div>
+</section>
+<div class="hr"></div>
+
+<!-- ── WHAT AI GETS WRONG ─────────────────────────────────────────────── -->
+<section class="problems-s">
+  <div class="wrap">
+    <div class="problems-hd">
+      <span class="eyebrow" data-r>Real failures. Caught before push.</span>
+      <h2 data-r data-d="1">What AI gets wrong.<br>Every time.</h2>
+      <p data-r data-d="2">AI tools make the same predictable mistakes across every project. Prometheus was built knowing exactly what they are — 757 rules derived from real production failures, not hypotheticals.</p>
+    </div>
+    <div class="tools-grid">
+
+      <div class="prob-card" data-r>
+        <span class="prob-badge pb-blocker">BLOCKER · AI_013</span>
+        <div class="prob-title">Prompt Injection</div>
+        <p class="prob-desc">AI generates code that concatenates user input directly into your prompts. Attackers can override your system prompt, extract secrets, or make your AI do anything.</p>
+        <div class="prob-code">
+<span class="pc-dim">// What Claude wrote ↓</span>
+<span class="pc-bad">const reply = await openai.chat.completions.create({
+  messages: [{ role: 'user',
+    content: 'Summarize: ' + <span style="background:rgba(255,80,80,.15);padding:0 2px">userInput</span> }]
+});</span>
+
+<span class="pc-flag">✗ BLOCKER — prompt_injection_user_input</span>
+<span class="pc-rule">  User input concatenated directly into prompt.
+  Sanitize or use a structured message boundary.</span>
+        </div>
+        <div class="prob-rule-id">prometheus/rules/ai.ts · AI_013</div>
+      </div>
+
+      <div class="prob-card" data-r data-d="1">
+        <span class="prob-badge pb-high">HIGH · ZOD_008</span>
+        <div class="prob-title">No Input Validation</div>
+        <p class="prob-desc">AI skips Zod schemas on API routes because the code works locally. Unvalidated bodies reach your database. In production, this is a security vulnerability and a type-error time bomb.</p>
+        <div class="prob-code">
+<span class="pc-dim">// What Copilot wrote ↓</span>
+<span class="pc-bad">export async function POST(req: Request) {
+  const body = await req.json();
+  await db.user.create({ data: <span style="background:rgba(255,150,60,.15);padding:0 2px">body</span> });
+}</span>
+
+<span class="pc-flag">✗ HIGH — missing_request_body_schema</span>
+<span class="pc-rule">  No Zod schema on POST route.
+  Unvalidated input reaches the database.</span>
+        </div>
+        <div class="prob-rule-id">prometheus/rules/zod.ts · ZOD_008</div>
+      </div>
+
+      <div class="prob-card" data-r data-d="2">
+        <span class="prob-badge pb-high">HIGH · DB_003</span>
+        <div class="prob-title">N+1 Query in a Loop</div>
+        <p class="prob-desc">AI writes clean-looking loops that fire a database query on every iteration. A list of 50 posts becomes 51 round-trips. Works fine in dev. Collapses under real traffic.</p>
+        <div class="prob-code">
+<span class="pc-dim">// What Cursor wrote ↓</span>
+<span class="pc-bad">for (const post of posts) {
+  const author = <span style="background:rgba(255,150,60,.15);padding:0 2px">await db.user.findUnique(</span>
+    { where: { id: post.authorId } }
+  );
+}</span>
+
+<span class="pc-flag">✗ HIGH — prisma_n_plus_one</span>
+<span class="pc-rule">  Prisma query inside a loop.
+  50 posts = 51 DB round-trips. Use include:.</span>
+        </div>
+        <div class="prob-rule-id">prometheus/rules/database.ts · DB_003</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -667,8 +990,8 @@
 <section class="stats">
   <div class="wrap">
     <div class="stats-grid">
-      <div class="stat-c" data-r><div class="stat-n" data-count="505">505</div><div class="stat-l">Governance Rules</div></div>
-      <div class="stat-c" data-r data-d="1"><div class="stat-n" data-count="17">17</div><div class="stat-l">Rule Categories</div></div>
+      <div class="stat-c" data-r><div class="stat-n" data-count="757">757</div><div class="stat-l">Governance Rules</div></div>
+      <div class="stat-c" data-r data-d="1"><div class="stat-n" data-count="12">12</div><div class="stat-l">Ecosystems Covered</div></div>
       <div class="stat-c" data-r data-d="2"><div class="stat-n" data-count="3">3</div><div class="stat-l">Integrated Tools</div></div>
       <div class="stat-c" data-r data-d="3"><div class="stat-n">0<span class="stat-u"> config</span></div><div class="stat-l">Setup Required</div></div>
     </div>
@@ -684,7 +1007,7 @@
         <span class="eyebrow" data-r>Three instruments</span>
         <h2 data-r data-d="1">One package.<br>Every layer protected.</h2>
       </div>
-      <p data-r data-d="2">CLI for local dev. Action for CI. Extension for real-time guidance while you write.</p>
+      <p data-r data-d="2">CLI for local dev. GitHub Action for CI. Extension for real-time feedback and AI adapter generation while you write.</p>
     </div>
     <div class="tools-grid">
       <div class="tool-card" data-r data-d="1">
@@ -713,7 +1036,7 @@
           <path d="M22 30H28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
         <div class="tool-name">VS Code Extension</div>
-        <p class="tool-desc">Real-time findings as you type. Health score in the status bar. The AI adapters panel keeps Claude, Cursor, and Copilot aware of your rules — governed code from line one.</p>
+        <p class="tool-desc">Real-time findings as you type. Health score in the status bar. The <strong style="color:var(--cream);font-weight:500">AI Adapters panel</strong> exports your active rules as a governance brief for Claude, Cursor, and Copilot — so your AI writes governed code from the first keystroke, not just the last review.</p>
         <span class="tool-tag">The Watcher</span>
       </div>
     </div>
@@ -726,7 +1049,7 @@
   <div class="wrap">
     <div class="term-hd">
       <span class="eyebrow" data-r>See it work</span>
-      <h2 data-r data-d="1">505 rules. One command.</h2>
+      <h2 data-r data-d="1">757 rules. One command.</h2>
     </div>
     <div class="terminal" data-r data-d="2">
       <div class="term-bar">
@@ -744,29 +1067,155 @@
   <div class="wrap">
     <div class="rules-hd">
       <div>
-        <span class="eyebrow" data-r>505 Rules</span>
+        <span class="eyebrow" data-r>757 Rules</span>
         <h2 data-r data-d="1">Every layer of your<br>AI stack, governed.</h2>
       </div>
-      <p data-r data-d="2">From prompt injection to N+1 queries to missing Zod schemas. All 505 active the moment you install. No configuration required.</p>
+      <p data-r data-d="2">From prompt injection to N+1 queries to hardcoded secrets. All 757 rules activate the moment you install. No configuration required. Every category below is a domain where AI tools predictably fail.</p>
     </div>
     <div class="rules-grid">
-      <div class="pill" data-r><span class="pill-n">AI / LLM</span><span class="pill-c">27</span></div>
-      <div class="pill" data-r data-d="1"><span class="pill-n">Security</span><span class="pill-c">22</span></div>
-      <div class="pill" data-r data-d="2"><span class="pill-n">Prisma</span><span class="pill-c">30</span></div>
-      <div class="pill" data-r data-d="3"><span class="pill-n">Zod</span><span class="pill-c">30</span></div>
-      <div class="pill" data-r><span class="pill-n">tRPC</span><span class="pill-c">25</span></div>
-      <div class="pill" data-r data-d="1"><span class="pill-n">React</span><span class="pill-c">30</span></div>
-      <div class="pill" data-r data-d="2"><span class="pill-n">Next.js</span><span class="pill-c">22</span></div>
-      <div class="pill" data-r data-d="3"><span class="pill-n">Performance</span><span class="pill-c">23</span></div>
-      <div class="pill" data-r><span class="pill-n">TypeScript</span><span class="pill-c">18</span></div>
-      <div class="pill" data-r data-d="1"><span class="pill-n">Node.js</span><span class="pill-c">30</span></div>
-      <div class="pill" data-r data-d="2"><span class="pill-n">Error Handling</span><span class="pill-c">25</span></div>
-      <div class="pill" data-r data-d="3"><span class="pill-n">State</span><span class="pill-c">20</span></div>
-      <div class="pill" data-r><span class="pill-n">Forms</span><span class="pill-c">20</span></div>
-      <div class="pill" data-r data-d="1"><span class="pill-n">Logging</span><span class="pill-c">20</span></div>
-      <div class="pill" data-r data-d="2"><span class="pill-n">CSS</span><span class="pill-c">20</span></div>
+      <div class="pill" data-r><span class="pill-n">Security</span><span class="pill-c">40</span></div>
+      <div class="pill" data-r data-d="1"><span class="pill-n">Next.js</span><span class="pill-c">37</span></div>
+      <div class="pill" data-r data-d="2"><span class="pill-n">TypeScript</span><span class="pill-c">35</span></div>
+      <div class="pill" data-r data-d="3"><span class="pill-n">React</span><span class="pill-c">32</span></div>
+      <div class="pill" data-r><span class="pill-n">Performance</span><span class="pill-c">31</span></div>
+      <div class="pill" data-r data-d="1"><span class="pill-n">Database</span><span class="pill-c">31</span></div>
+      <div class="pill" data-r data-d="2"><span class="pill-n">Node.js</span><span class="pill-c">30</span></div>
+      <div class="pill" data-r data-d="3"><span class="pill-n">Prisma</span><span class="pill-c">30</span></div>
+      <div class="pill" data-r><span class="pill-n">Zod</span><span class="pill-c">30</span></div>
+      <div class="pill" data-r data-d="1"><span class="pill-n">AI / LLM</span><span class="pill-c">27</span></div>
+      <div class="pill" data-r data-d="2"><span class="pill-n">Vibe Coding</span><span class="pill-c">25</span></div>
+      <div class="pill" data-r data-d="3"><span class="pill-n">tRPC</span><span class="pill-c">25</span></div>
+      <div class="pill" data-r><span class="pill-n">Error Handling</span><span class="pill-c">25</span></div>
+      <div class="pill" data-r data-d="1"><span class="pill-n">Python</span><span class="pill-c">25</span></div>
+      <div class="pill" data-r data-d="2"><span class="pill-n">State</span><span class="pill-c">20</span></div>
+      <div class="pill" data-r data-d="3"><span class="pill-n">Forms</span><span class="pill-c">20</span></div>
+      <div class="pill" data-r><span class="pill-n">Logging</span><span class="pill-c">20</span></div>
+      <div class="pill" data-r data-d="1"><span class="pill-n">CSS</span><span class="pill-c">20</span></div>
+      <div class="pill" data-r data-d="2"><span class="pill-n">Design System</span><span class="pill-c">20</span></div>
       <div class="pill" data-r data-d="3"><span class="pill-n">Imports</span><span class="pill-c">20</span></div>
-      <div class="pill" data-r><span class="pill-n">Database</span><span class="pill-c">23</span></div>
+      <div class="pill" data-r data-d="3"><span class="pill-n">Quality</span><span class="pill-c">20</span></div>
+      <div class="pill" data-r><span class="pill-n">Java / Spring</span><span class="pill-c">20</span></div>
+      <div class="pill" data-r data-d="1"><span class="pill-n">C# / .NET</span><span class="pill-c">20</span></div>
+      <div class="pill" data-r data-d="2"><span class="pill-n">PHP / Laravel</span><span class="pill-c">20</span></div>
+      <div class="pill" data-r data-d="3"><span class="pill-n">Ruby / Rails</span><span class="pill-c">20</span></div>
+      <div class="pill" data-r><span class="pill-n">Go</span><span class="pill-c">20</span></div>
+      <div class="pill" data-r data-d="1"><span class="pill-n">Rust</span><span class="pill-c">20</span></div>
+      <div class="pill" data-r data-d="2"><span class="pill-n">Django</span><span class="pill-c">20</span></div>
+      <div class="pill" data-r data-d="3"><span class="pill-n">Dockerfile</span><span class="pill-c">15</span></div>
+      <div class="pill" data-r><span class="pill-n">Terraform</span><span class="pill-c">12</span></div>
+      <div class="pill" data-r data-d="1"><span class="pill-n">GitHub Actions</span><span class="pill-c">10</span></div>
+      <div class="pill" data-r data-d="2"><span class="pill-n">Slopsquatting</span><span class="pill-c">5</span></div>
+    </div>
+  </div>
+</section>
+<div class="hr"></div>
+
+<!-- ── LANGUAGE COVERAGE ──────────────────────────────────────────────── -->
+<section class="langs-s" id="languages">
+  <div class="wrap">
+    <div class="langs-hd" data-r>
+      <span class="eyebrow">12 Ecosystems</span>
+      <h2>Every Language.<br>One Tool.</h2>
+      <p>757 rules across 12 ecosystems — the same governance layer whether your stack is TypeScript, Python, Go, Java, or infrastructure-as-code. New languages land as rule packs with zero config changes.</p>
+    </div>
+    <div class="langs-grid">
+
+      <div class="lang-card" data-r data-d="0">
+        <div class="lang-top">
+          <span class="lang-name">JavaScript / TypeScript</span>
+          <span class="lang-badge">500+ rules</span>
+        </div>
+        <p class="lang-desc">AI safety, React, Next.js, Node.js, tRPC, Prisma, Zod, security, performance, and TypeScript correctness.</p>
+      </div>
+
+      <div class="lang-card" data-r data-d="1">
+        <div class="lang-top">
+          <span class="lang-name">Python</span>
+          <span class="lang-badge">20 rules</span>
+        </div>
+        <p class="lang-desc">SQL injection, unsafe deserialization, hardcoded secrets, path traversal, weak crypto, and subprocess injection.</p>
+      </div>
+
+      <div class="lang-card" data-r data-d="2">
+        <div class="lang-top">
+          <span class="lang-name">Django</span>
+          <span class="lang-badge">20 rules</span>
+        </div>
+        <p class="lang-desc">Debug mode in production, raw SQL in ORM, missing CSRF, template injection via mark_safe, and missing AUTH_PASSWORD_VALIDATORS.</p>
+      </div>
+
+      <div class="lang-card" data-r data-d="3">
+        <div class="lang-top">
+          <span class="lang-name">Go</span>
+          <span class="lang-badge">20 rules</span>
+        </div>
+        <p class="lang-desc">Goroutine leaks, SQL concatenation in db.Query, ioutil deprecation, weak random, missing context cancellation.</p>
+      </div>
+
+      <div class="lang-card" data-r data-d="4">
+        <div class="lang-top">
+          <span class="lang-name">Ruby / Rails</span>
+          <span class="lang-badge">20 rules</span>
+        </div>
+        <p class="lang-desc">ActiveRecord string interpolation, params.permit!, YAML.load RCE, missing authenticate before_action.</p>
+      </div>
+
+      <div class="lang-card" data-r data-d="5">
+        <div class="lang-top">
+          <span class="lang-name">PHP / Laravel</span>
+          <span class="lang-badge">20 rules</span>
+        </div>
+        <p class="lang-desc">SQL injection, XSS via echo, eval(), path traversal, $guarded = [], whereRaw() injection, SSRF.</p>
+      </div>
+
+      <div class="lang-card" data-r data-d="6">
+        <div class="lang-top">
+          <span class="lang-name">Java / Spring</span>
+          <span class="lang-badge">20 rules</span>
+        </div>
+        <p class="lang-desc">Missing @PreAuthorize, XXE injection, ObjectInputStream deserialization, Spring CSRF disabled, actuator exposure.</p>
+      </div>
+
+      <div class="lang-card" data-r data-d="7">
+        <div class="lang-top">
+          <span class="lang-name">Rust</span>
+          <span class="lang-badge">20 rules</span>
+        </div>
+        <p class="lang-desc">unwrap() in lib crates, unsafe blocks without SAFETY comments, blocking I/O in async, mem::transmute.</p>
+      </div>
+
+      <div class="lang-card" data-r data-d="8">
+        <div class="lang-top">
+          <span class="lang-name">C# / .NET</span>
+          <span class="lang-badge">20 rules</span>
+        </div>
+        <p class="lang-desc">Missing [Authorize], EF Core raw SQL interpolation, TypeNameHandling RCE, hardcoded JWT secrets.</p>
+      </div>
+
+      <div class="lang-card" data-r data-d="5">
+        <div class="lang-top">
+          <span class="lang-name">Dockerfile</span>
+          <span class="lang-badge">15 rules</span>
+        </div>
+        <p class="lang-desc">Running as root, secrets in ENV/ARG, <code>curl | bash</code> execution, no HEALTHCHECK, unpinned base tags, <code>ADD</code> instead of <code>COPY</code>.</p>
+      </div>
+
+      <div class="lang-card" data-r data-d="6">
+        <div class="lang-top">
+          <span class="lang-name">GitHub Actions</span>
+          <span class="lang-badge">10 rules</span>
+        </div>
+        <p class="lang-desc">Script injection via <code>${{ github.event.* }}</code>, pull_request_target TOCTOU, unpinned action SHA, write-all permissions, deprecated <code>::set-env::</code>.</p>
+      </div>
+
+      <div class="lang-card" data-r data-d="7">
+        <div class="lang-top">
+          <span class="lang-name">Terraform / IaC</span>
+          <span class="lang-badge">12 rules</span>
+        </div>
+        <p class="lang-desc">Public S3 ACL, security groups open to 0.0.0.0/0, unencrypted RDS and EBS, IAM wildcard actions, hardcoded credentials, IMDSv1 enabled.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -779,24 +1228,24 @@
       <div class="how-sticky">
         <span class="eyebrow" data-r>Setup</span>
         <h2 data-r data-d="1">Governed in minutes.<br>Protected forever.</h2>
-        <p data-r data-d="2">No account. No cloud. Prometheus runs locally, in CI, and in your editor — simultaneously.</p>
+        <p data-r data-d="2">No account. No cloud. Prometheus runs locally, in CI, and in your editor — simultaneously. The feedback loop is both reactive and proactive.</p>
       </div>
       <div class="steps">
         <div class="step" data-r>
           <span class="step-n">I</span>
-          <div><h3>Install</h3><p>Run <code>npm install prometheus-governance</code>. All 505 rules activate immediately — no config file needed.</p></div>
+          <div><h3>Install</h3><p>Run <code>npm install prometheus-governance</code>. All 757 rules activate immediately — no config file needed.</p></div>
         </div>
         <div class="step" data-r data-d="1">
           <span class="step-n">II</span>
-          <div><h3>Scan</h3><p>Run <code>prometheus scan</code> to get your first health grade and see every finding in your codebase, categorized by severity.</p></div>
+          <div><h3>Scan & Grade</h3><p>Run <code>prometheus scan</code> to get your first health grade (A+ through F). Every finding is categorized by severity so you know exactly what to fix first.</p></div>
         </div>
         <div class="step" data-r data-d="2">
           <span class="step-n">III</span>
-          <div><h3>Protect CI</h3><p>Copy one YAML file to <code>.github/workflows/</code>. Every PR from this point is governed — BLOCKERs block the merge automatically.</p></div>
+          <div><h3>Teach Your AI</h3><p>Run <code>prometheus scan --adapter claude</code> to generate a governance brief. Paste it into Claude, Cursor, or Copilot. Your AI now knows your rules <em>before</em> it writes a single line — governed code from the first keystroke, not the last review.</p></div>
         </div>
         <div class="step" data-r data-d="3">
           <span class="step-n">IV</span>
-          <div><h3>Extend</h3><p>Write custom rules or drop community packs into <code>.prometheus/packs/</code>. They load at runtime, no rebuild needed.</p></div>
+          <div><h3>Gate Every PR</h3><p>Drop one YAML file into <code>.github/workflows/</code>. Every pull request gets a full governance scan with inline comments on the exact offending line. BLOCKERs block the merge automatically — no human reviewer required to catch prompt injection or hardcoded secrets.</p></div>
         </div>
       </div>
     </div>
@@ -808,11 +1257,11 @@
 <section class="cta">
   <canvas id="cta-fire" aria-hidden="true"></canvas>
   <div class="cta-inner wrap-sm">
-    <h2 data-r>The fire is yours.<br>Take it.</h2>
-    <p data-r data-d="1">Open source. MIT licensed.<br>No telemetry, no lock-in, no account. Just governance.</p>
+    <h2 data-r>Stop reviewing<br>what AI got wrong.</h2>
+    <p data-r data-d="1">Teach it your rules upfront. Gate every PR. Catch what it misses. Open source, MIT licensed, no telemetry.</p>
     <div class="cta-btns" data-r data-d="2">
-      <a href="https://github.com/TenticleTim/prometheus-fire" target="_blank" rel="noopener" class="btn btn-fire">Download from GitHub</a>
-      <a href="https://github.com/TenticleTim/prometheus-fire" target="_blank" rel="noopener" class="btn btn-ghost">★ &nbsp;Star on GitHub</a>
+      <a href="https://github.com/TenticleTim/prometheus-fire" target="_blank" rel="noopener noreferrer" class="btn btn-fire">Download from GitHub</a>
+      <a href="https://github.com/TenticleTim/prometheus-fire" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">★ &nbsp;Star on GitHub</a>
     </div>
     <p class="cta-note" data-r data-d="3">Node.js 18+  ·  MIT License  ·  Built by Holley Studios</p>
   </div>
@@ -826,9 +1275,9 @@
       <div class="f-by">Built by Holley Studios</div>
     </div>
     <div class="f-links">
-      <a href="https://github.com/TenticleTim/prometheus-fire" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://github.com/TenticleTim/prometheus-fire/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a>
-      <a href="https://github.com/TenticleTim/prometheus-fire/blob/main/SECURITY.md" target="_blank" rel="noopener">Security</a>
+      <a href="https://github.com/TenticleTim/prometheus-fire" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://github.com/TenticleTim/prometheus-fire/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Contributing</a>
+      <a href="https://github.com/TenticleTim/prometheus-fire/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer">Security</a>
     </div>
   </div>
 </footer>
@@ -1001,7 +1450,7 @@ makeFire(document.getElementById('cta-fire'), {
 /* ─── Nav scroll ─────────────────────────────────────────────────────── */
 (function () {
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('pinned', scrollY > 48), {passive:true});
+  window.addEventListener('scroll', () => nav.classList.toggle('pinned', window.scrollY > 48), {passive:true});
 }());
 
 /* ─── Scroll reveal ──────────────────────────────────────────────────── */
@@ -1036,7 +1485,7 @@ makeFire(document.getElementById('cta-fire'), {
     {h:'<span class="tp">$ </span><span class="tc2">prometheus scan</span>',p:200},
     {h:'<span class="tln"></span>',p:280},
     {h:'<span class="tf">🔱 Prometheus Governance  v1.0.0</span>',p:80},
-    {h:'<span class="td2">   Scanning 847 files  ·  505 rules  ·  17 categories</span>',p:520},
+    {h:'<span class="td2">   Scanning 847 files  ·  757 rules  ·  12 ecosystems</span>',p:520},
     {h:'<span class="tln"></span>',p:40},
     {h:'<span class="te">  BLOCKER  src/api/ai/generate.ts:47</span>',p:55},
     {h:'<span class="te">           prompt_injection_user_input — User input concatenated</span>',p:45},
@@ -1053,7 +1502,7 @@ makeFire(document.getElementById('cta-fire'), {
     {h:'<span class="td2">           + 14 MEDIUM  ·  38 LOW  ·  22 TECH_DEBT</span>',p:180},
     {h:'<span class="tln"></span>',p:30},
     {h:'<span class="tpu">  ──────────────────────────────────────────────</span>',p:60},
-    {h:'<span class="td2">  Files scanned    847   ·   Rules evaluated  505</span>',p:70},
+    {h:'<span class="td2">  Files scanned    847   ·   Rules evaluated  757</span>',p:70},
     {h:'<span class="tln"></span>',p:30},
     {h:'<span class="te">  Health Grade   C   ·   Resolve BLOCKERs before deploy</span>',p:70},
     {h:'<span class="td2">  Report saved   .prometheus/report.json</span>',p:0},

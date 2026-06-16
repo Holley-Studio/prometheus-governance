@@ -198,6 +198,43 @@
       "type": "object",
       "description": "Custom script overrides for prometheus commands",
       "additionalProperties": { "type": "string" }
+    },
+    "design": {
+      "type": "object",
+      "description": "Design governance settings — customize scale values and icon libraries for your design system",
+      "additionalProperties": false,
+      "properties": {
+        "cssFramework": {
+          "type": "string",
+          "enum": ["tailwind", "vanilla", "styled-components", "css-modules", "emotion", "auto"],
+          "description": "CSS framework in use. Currently informational — Tailwind-pattern rules detect automatically. Default: 'auto'.",
+          "default": "auto"
+        },
+        "iconLibraries": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Additional icon library package names to include in mixed-icon detection (DESIGN_016). Merged with the built-in set (lucide-react, @heroicons/react, react-icons, phosphor-react, etc.).",
+          "examples": [["@mui/icons-material", "@myorg/design-system/icons"]]
+        },
+        "borderRadiusScale": {
+          "type": "array",
+          "items": { "type": "number", "minimum": 0 },
+          "description": "Allowed border-radius pixel values for DESIGN_010. Values not in this list are flagged. Default: Tailwind rounded scale [0,2,4,6,8,12,16,24,9999].",
+          "examples": [[0, 4, 8, 16, 24, 9999]]
+        },
+        "animationScale": {
+          "type": "array",
+          "items": { "type": "number", "minimum": 0 },
+          "description": "Allowed animation/transition duration values in ms for DESIGN_014. Default: Tailwind duration scale [75,100,150,200,300,500,700,1000].",
+          "examples": [[100, 200, 300, 400, 500]]
+        },
+        "opacityScale": {
+          "type": "array",
+          "items": { "type": "number", "minimum": 0, "maximum": 1 },
+          "description": "Allowed opacity values (0–1) for DESIGN_018. Default: Tailwind 5% increment scale (0, 0.05, 0.1, … 0.95, 1).",
+          "examples": [[0, 0.1, 0.25, 0.5, 0.75, 0.9, 1]]
+        }
+      }
     }
   },
   "definitions": {

@@ -28,6 +28,11 @@
     "detector.ts",
     "doctor.ts",
     "ci-check.ts",
+    "hooks.ts",
+    "watcher.ts",
+    "interactive.ts",
+    "interactive-init.ts",
+    "fix.ts",
     "rules/**/*.ts",
     "scanner/**/*.ts",
     "bin/**/*.ts"

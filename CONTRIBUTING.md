@@ -11,6 +11,7 @@ Thank you for helping make this better. This guide covers everything you need to
 - [Project structure](#project-structure)
 - [Adding a new rule](#adding-a-new-rule)
 - [Adding a built-in agent or skill](#adding-a-built-in-agent-or-skill)
+- [Creating a community rule pack](#creating-a-community-rule-pack)
 - [Commit conventions](#commit-conventions)
 - [Pull request process](#pull-request-process)
 - [Reporting bugs](#reporting-bugs)
@@ -190,6 +191,102 @@ version: "1.0.0"
 ```
 
 Run `npm run prometheus:catalog:validate` to check that the frontmatter is valid before opening a PR.
+
+---
+
+## Creating a community rule pack
+
+Rule packs let you ship extra rules as a standalone npm package without modifying the core registry. Use this path when you're building rules for a specific framework, language, or organisation that doesn't belong in the built-in set.
+
+### Scaffold the pack
+
+```bash
+cd your-project
+prometheus pack:create @myorg/my-pack
+```
+
+This creates `.prometheus/packs/my-pack/` with:
+
+```
+pack.json           — manifest (id, version, author, provides)
+rules/index.ts      — example rule with full explain block
+agents/             — optional agent .md files
+skills/             — optional skill .md files
+playbooks/          — optional playbook .md files
+profiles/           — optional profile .json files
+README.md           — authoring and publishing guide
+```
+
+### Write your rules
+
+Edit `rules/index.ts`. Every rule must export a `PrometheusRule` object:
+
+```typescript
+import type { PrometheusRule, Finding } from 'prometheus-governance';
+
+export const PACK_RULES: PrometheusRule[] = [
+  {
+    id: 'MY_001',
+    category: 'my_violation',
+    severity: 'HIGH',
+    description: 'One sentence description.',
+    tags: ['my-framework', 'security'],
+    sinceVersion: '1.0.0',
+    explain: {
+      why: 'Why this pattern is risky.',
+      commonViolations: ['Example of bad code that AI generates'],
+      goodExample: '// correct pattern',
+      badExample: '// bad pattern',
+    },
+    detect({ changedFiles }): Finding[] {
+      const findings: Finding[] = [];
+      for (const { path, content } of changedFiles) {
+        // your detection logic
+      }
+      return findings;
+    },
+  },
+];
+```
+
+Rule IDs must be unique across all installed packs. Use a prefix matching your pack name to avoid collisions: `@myorg/python` → `MYPY_001`, `@myorg/django` → `MYDJ_001`.
+
+### Test locally
+
+```bash
+# Compile to JS (required for runtime loading)
+npx tsup rules/index.ts --format esm --outDir rules
+
+# Verify discovery
+prometheus pack:list
+
+# Validate manifest
+prometheus pack:validate
+
+# Run rules alongside built-ins
+prometheus review
+```
+
+### Publish to npm
+
+```bash
+# 1. Compile first
+npx tsup rules/index.ts --format esm --outDir rules
+
+# 2. Include these paths in package.json "files"
+#    ["pack.json", "rules/", "agents/", "skills/"]
+
+# 3. Publish
+npm publish --access public
+```
+
+After publishing, users install your pack with:
+
+```bash
+npm install @myorg/my-pack
+```
+
+Prometheus auto-discovers packs under `node_modules/@prometheus/` and any scoped package whose `pack.json` has `schemaVersion: "1"`.
 
 ---
 

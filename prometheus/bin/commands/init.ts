@@ -16,6 +16,7 @@ import { runScanner } from '../../scanner/index.ts';
 import { loadCatalogProfile, loadBuiltInCatalog } from '../../catalog.ts';
 import { REGISTRY_PATH } from '../../registry.ts';
 import { runInteractiveInit } from '../../interactive-init.ts';
+import { initFromAiConfig, formatInitFromAiConfigConsole } from '../../ai-lint.ts';
 
 export async function cmdInit(argv: string[]): Promise<void> {
   const { root, config } = createContext();
@@ -26,10 +27,22 @@ export async function cmdInit(argv: string[]): Promise<void> {
   const markdown    = flag(flags, 'markdown');
   const profileId   = flagVal(flags, 'profile');
   const interactive = flag(flags, 'interactive') || flag(flags, 'i');
+  const fromAi     = flag(flags, 'from-ai-config');
 
   // Interactive wizard mode
   if (interactive) {
     await runInteractiveInit(root, config, { dryRun });
+    return;
+  }
+
+  // --from-ai-config: read existing AI behavior files and generate config
+  if (fromAi) {
+    const result = initFromAiConfig(root, dryRun);
+    if (json) {
+      process.stdout.write(JSON.stringify(result, null, 2) + '\n');
+    } else {
+      process.stdout.write(formatInitFromAiConfigConsole(result) + '\n');
+    }
     return;
   }
 

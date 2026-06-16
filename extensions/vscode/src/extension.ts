@@ -25,6 +25,8 @@ import { DiagnosticsManager } from './diagnostics.js';
 import { StatusBarManager } from './statusBar.js';
 import { FindingsTreeProvider } from './treeView.js';
 import { registerCommands } from './commands.js';
+import { PrometheusHoverProvider } from './hover.js';
+import { PrometheusCodeActionProvider } from './codeAction.js';
 import {
   runReview,
   runHealth,
@@ -102,6 +104,21 @@ class PrometheusExtension implements vscode.Disposable {
       (uri) => this.reviewSingleFile(uri),
     );
     this.disposables.push(commands);
+
+    // Hover provider — rich tooltips on findings
+    const hoverProvider = vscode.languages.registerHoverProvider(
+      { scheme: 'file' },
+      new PrometheusHoverProvider(this.workspaceRoot, () => this.allFindings),
+    );
+    this.disposables.push(hoverProvider);
+
+    // Code action provider — suppress quick-fix lightbulbs
+    const codeActionProvider = vscode.languages.registerCodeActionsProvider(
+      { scheme: 'file' },
+      new PrometheusCodeActionProvider(),
+      { providedCodeActionKinds: PrometheusCodeActionProvider.providedCodeActionKinds },
+    );
+    this.disposables.push(codeActionProvider);
 
     // File save watcher (debounced)
     const saveWatcher = vscode.workspace.onDidSaveTextDocument((doc) => {

@@ -11,6 +11,19 @@ export interface SeverityRule {
   severity: Severity;
 }
 
+export interface DesignConfig {
+  /** CSS framework in use. Currently informational — design rules detect Tailwind patterns automatically. Default: 'auto'. */
+  cssFramework?: 'tailwind' | 'vanilla' | 'styled-components' | 'css-modules' | 'emotion' | 'auto';
+  /** Extra icon library package names to track for DESIGN_016 (mixed icon libraries). Merged with the built-in set. */
+  iconLibraries?: string[];
+  /** Allowed border-radius pixel values for DESIGN_010. Default: Tailwind rounded scale [0,2,4,6,8,12,16,24,9999]. */
+  borderRadiusScale?: number[];
+  /** Allowed animation/transition duration values in ms for DESIGN_014. Default: Tailwind duration scale [75,100,150,200,300,500,700,1000]. */
+  animationScale?: number[];
+  /** Allowed opacity values (0–1) for DESIGN_018. Default: Tailwind 5% increment scale. */
+  opacityScale?: number[];
+}
+
 export interface PrometheusConfig {
   name: string;
   version: string;
@@ -46,6 +59,9 @@ export interface PrometheusConfig {
     requiredFiles: string[];
     requiredIdeDirs: string[];
   };
+
+  // Design governance
+  design?: DesignConfig;
 
   // Legacy nested compat
   review?: { defaultBase?: string };
@@ -125,6 +141,13 @@ export interface DetectorResult {
   envVars: string[];
 }
 
+export interface LanguageStats {
+  language: string;   // "TypeScript", "Python", "Go", "Ruby", "Rust", "JavaScript", "Other"
+  extension: string;  // ".ts", ".py", ".go", ".rb", ".rs", ".js"
+  fileCount: number;
+  lineCount: number;  // total lines across all files of this type
+}
+
 export interface ScanResult {
   _generatedSections: string[];
   generatedAt: string;
@@ -143,6 +166,9 @@ export interface ScanResult {
   scriptFiles: string[];
   envFiles: string[];
   clientBoundaryRisks: ClientBoundaryRisk[];
+  // Language inventory
+  languages?: LanguageStats[];
+  detectedStacks?: string[];
   // Metadata
   detector?: DetectorResult;
 }
@@ -165,9 +191,9 @@ export interface RuleExplanation {
   commonViolations: string[];
   goodExample: string;
   badExample: string;
-  relatedPlaybooks: string[];
-  relatedAgents: string[];
-  relatedSkills: string[];
+  relatedPlaybooks?: string[];
+  relatedAgents?: string[];
+  relatedSkills?: string[];
 }
 
 export interface PrometheusRule {

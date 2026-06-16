@@ -1,6 +1,6 @@
 # Prometheus Governance
 
-**505 rules. Zero config. Built for the AI-assisted engineering era.**
+**757 rules. Zero config. Built for the AI-assisted engineering era.**
 
 Prometheus is an open-source code governance toolkit that watches AI-generated code for security holes, broken patterns, and architectural mistakes — before they reach production.
 
@@ -10,7 +10,7 @@ Prometheus is an open-source code governance toolkit that watches AI-generated c
 
 AI tools write code faster than humans can review it. Copilot, Cursor, and Claude can ship working features in minutes — but they also hallucinate Prisma clients outside module scope, concatenate user input directly into LLM prompts, and create N+1 query waterfalls without a second thought.
 
-Prometheus closes that gap. 505 hand-written rules covering AI safety, security, performance, and correctness — active the moment you install.
+Prometheus closes that gap. 757 hand-written rules covering AI safety, security, performance, and correctness — active the moment you install.
 
 ---
 
@@ -81,7 +81,7 @@ Install from the `extensions/vscode/` directory for:
 
 ---
 
-## The 505 Rules
+## The 757 Rules
 
 Rules are organized into 17 categories:
 
@@ -150,7 +150,7 @@ prometheus-fire/
 │   └── index.html
 ├── prometheus/           npm package — CLI + core engine
 │   ├── bin/             CLI entry points (scan, review, audit, init, watch)
-│   ├── catalog/         505 rules organized by category
+│   ├── catalog/         757 rules organized by category
 │   ├── index.ts         Public API
 │   ├── metrics.ts       Health grade calculation
 │   └── report.ts        Report generation

@@ -6,12 +6,12 @@
   "author": "Matt Holley",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TenticleTim/prometheus-helper.git",
+    "url": "https://github.com/TenticleTim/prometheus-fire.git",
     "directory": "prometheus"
   },
-  "homepage": "https://github.com/TenticleTim/prometheus-helper#readme",
+  "homepage": "https://github.com/TenticleTim/prometheus-fire#readme",
   "bugs": {
-    "url": "https://github.com/TenticleTim/prometheus-helper/issues"
+    "url": "https://github.com/TenticleTim/prometheus-fire/issues"
   },
   "keywords": [
     "governance",
@@ -45,6 +45,7 @@
   "files": [
     "dist/",
     "catalog/",
+    "presets/",
     "README.md",
     "CHANGELOG.md",
     "config.schema.json"
@@ -89,6 +90,8 @@
     "prometheus:health": "vite-node bin/cli.ts health",
     "prometheus:ci": "vite-node bin/cli.ts ci",
     "prometheus:fix": "vite-node bin/cli.ts fix",
+    "prometheus:watch": "vite-node bin/cli.ts watch",
+    "prometheus:report": "vite-node bin/cli.ts report",
     "prometheus:update": "vite-node bin/cli.ts update"
   },
   "devDependencies": {
@@ -97,6 +100,7 @@
     "@vitest/coverage-v8": "^4.1.8",
     "tsup": "^8.5.1",
     "typescript": "^5.4.5",
+    "vite-node": "^3.2.4",
     "vitest": "^4.1.8"
   }
 }
