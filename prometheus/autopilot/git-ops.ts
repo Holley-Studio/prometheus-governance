@@ -3,7 +3,7 @@
  * All operations use execSync with explicit cwd — never rely on process.cwd().
  * Every function that writes to the repo documents what it does and why.
  */
-import { execSync, execFileSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { slugFromTitle } from './plan-parser.js';
@@ -182,8 +182,9 @@ export function pushBranch(root: string, branch: string): void {
 
 export function createDraftPR(root: string, branch: string, title: string, body: string): string {
   try {
-    const result = execSync(
-      `gh pr create --title "${title.replace(/"/g, '\\"')}" --body-file - --draft --head "${branch}"`,
+    const result = execFileSync(
+      'gh',
+      ['pr', 'create', '--title', title, '--body-file', '-', '--draft', '--head', branch],
       {
         cwd: root,
         input: body,

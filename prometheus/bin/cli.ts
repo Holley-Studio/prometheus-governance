@@ -82,7 +82,10 @@ const COMMANDS: Record<string, (argv: string[]) => Promise<void>> = {
   'autopilot:cancel': () => cmdAutopilot(['cancel']),
   'autopilot:status': () => cmdAutopilot(['status']),
   'autopilot:revert': (argv) => cmdAutopilot(['revert', ...argv]),
-  'autopilot:open-pr': (argv) => cmdAutopilot(['open-pr', ...argv]),
+  'autopilot:open-pr':  (argv) => cmdAutopilot(['open-pr', ...argv]),
+  'autopilot:generate': (argv) => cmdAutopilot(['generate', ...argv]),
+  'autopilot:review':   (argv) => cmdAutopilot(['review', ...argv]),
+  'autopilot:stats':    ()     => cmdAutopilot(['stats']),
 };
 
 const argv = process.argv.slice(2); // ['command', ...flags]

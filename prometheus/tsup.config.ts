@@ -11,7 +11,7 @@ export default defineConfig([
     dts: true,
     sourcemap: false,
     clean: true,
-    target: 'node18',
+    target: 'node20',
     outDir: 'dist',
     tsconfig: 'tsconfig.build.json',
     // Node built-ins are not bundled (they're external by default in tsup)
@@ -34,7 +34,7 @@ export default defineConfig([
     dts: false,
     sourcemap: false,
     clean: false,
-    target: 'node18',
+    target: 'node20',
     outDir: 'dist',
     tsconfig: 'tsconfig.build.json',
     platform: 'node',

@@ -265,7 +265,7 @@ function detectStack(files: AiConfigFile[]): DetectedStack {
   if (/\btrpc\b/i.test(combined)) frameworks.push('tRPC');
   if (/\bsupabase\b/i.test(combined)) frameworks.push('Supabase');
 
-  const isAiHeavy = VIBE_SIGNALS.test(combined) || files.some((f) => f.bytes > 100);
+  const isAiHeavy = files.length > 0 || VIBE_SIGNALS.test(combined);
   const isAiStrict = AI_STRICT_SIGNALS.test(combined);
   const hasSecurityRules = SECURITY_KEYWORDS.test(combined);
   const hasGovGaps = !hasSecurityRules || SKIP_TESTS_RE.test(combined);

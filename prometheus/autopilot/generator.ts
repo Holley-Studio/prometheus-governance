@@ -466,8 +466,6 @@ export async function generatePlan(
   const fmStart = planContent.indexOf('---');
   if (fmStart > 0) planContent = planContent.slice(fmStart);
 
-  // Strip trailing prose after the last task block
-  const lastTaskMatch = /^---CHECKPOINT---|^## Task /m;
   // Keep everything from the first --- to end
   planContent = planContent.trim();
 

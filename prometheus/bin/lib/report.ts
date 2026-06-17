@@ -10,12 +10,12 @@ import type { ScanResult } from '../../types.ts';
  * Load and parse .prometheus/report.json relative to `root`.
  * Returns the ScanResult or undefined if the file is absent or unparseable.
  */
-export function loadReport(root: string): ScanResult | undefined {
+export function loadReport(root: string): ScanResult | null {
   const reportPath = join(root, '.prometheus', 'report.json');
-  if (!existsSync(reportPath)) return undefined;
+  if (!existsSync(reportPath)) return null;
   try {
     return JSON.parse(readFileSync(reportPath, 'utf8')) as ScanResult;
   } catch {
-    return undefined;
+    return null;
   }
 }

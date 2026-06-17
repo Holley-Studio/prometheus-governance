@@ -101,7 +101,11 @@
     "prometheus:autopilot:resume": "tsx bin/cli.ts autopilot:resume",
     "prometheus:autopilot:cancel": "tsx bin/cli.ts autopilot:cancel",
     "prometheus:autopilot:status": "tsx bin/cli.ts autopilot:status",
-    "prometheus:autopilot:revert": "tsx bin/cli.ts autopilot:revert"
+    "prometheus:autopilot:revert": "tsx bin/cli.ts autopilot:revert",
+    "prometheus:autopilot:open-pr": "tsx bin/cli.ts autopilot:open-pr",
+    "prometheus:autopilot:generate": "tsx bin/cli.ts autopilot:generate",
+    "prometheus:autopilot:review": "tsx bin/cli.ts autopilot:review",
+    "prometheus:autopilot:stats": "tsx bin/cli.ts autopilot:stats"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.10",

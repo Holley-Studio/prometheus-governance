@@ -15,7 +15,7 @@
  * 11. If any fail: check for loop, retry with enriched prompt
  * 12. After max retries: mark BLOCKED, pop stash, continue
  */
-import { execFileSync, execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { AutopilotPlan, AutopilotSession, AutopilotTask } from '../types.js';

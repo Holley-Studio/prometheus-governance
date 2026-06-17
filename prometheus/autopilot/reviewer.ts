@@ -13,7 +13,7 @@
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import type { AutopilotSession } from '../types.js';
 import type { Adapter } from './adapters.js';
 import { createAdapter } from './adapters.js';
@@ -24,10 +24,10 @@ import { formatTimestamp } from './journal.js';
 
 export function getSessionDiff(root: string, branch: string, baseBranch = 'main'): string {
   try {
-    const diff = execSync(`git diff ${baseBranch}...${branch}`, {
+    const diff = execFileSync('git', ['diff', `${baseBranch}...${branch}`], {
       cwd: root,
       encoding: 'utf8',
-      maxBuffer: 10 * 1024 * 1024, // 10 MB
+      maxBuffer: 10 * 1024 * 1024,
       stdio: ['pipe', 'pipe', 'pipe'],
     });
     return diff;
@@ -38,7 +38,7 @@ export function getSessionDiff(root: string, branch: string, baseBranch = 'main'
 
 export function getCommitLog(root: string, branch: string, baseBranch = 'main'): string {
   try {
-    return execSync(`git log --oneline ${baseBranch}..${branch}`, {
+    return execFileSync('git', ['log', '--oneline', `${baseBranch}..${branch}`], {
       cwd: root,
       encoding: 'utf8',
       stdio: ['pipe', 'pipe', 'pipe'],

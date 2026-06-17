@@ -1000,8 +1000,7 @@ export function formatFixConsole(result: FixResult): string {
     for (const f of applied) {
       const loc = f.line != null ? `:${f.line}` : '';
       const verb = dryRun ? 'Would fix' : 'Fixed';
-      lines.push(`  ✅  ${f.file}${loc}  [${f.rule}]  — ${f.action}`);
-      void verb; // suppress unused warning; kept for future use
+      lines.push(`  ${dryRun ? '🔍' : '✅'}  ${verb}: ${f.file}${loc}  [${f.rule}]  — ${f.action}`);
     }
   }
 

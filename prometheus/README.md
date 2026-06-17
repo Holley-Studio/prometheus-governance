@@ -18,7 +18,7 @@ Prometheus is a repo governance tool for TypeScript projects. Define your code r
 
 Without governance, every AI assistant in your team invents its own rules. Claude follows one convention, Cursor follows another, Copilot knows nothing about your auth patterns. Every PR review is inconsistent. Governance debt compounds silently.
 
-Prometheus solves this with a **single source of truth**: 505 rules defined once, propagated everywhere.
+Prometheus solves this with a **single source of truth**: 757 rules defined once, propagated everywhere.
 
 | | Prometheus | ESLint | Danger.js | CodeClimate |
 | --- | --- | --- | --- | --- |
@@ -299,7 +299,7 @@ npx prometheus fix --base=main             # applies changes
 
 ## Rule packs
 
-Packs are installable bundles of additional rules, agents, skills, and playbooks. The built-in registry ships 505 rules — packs let the community (and your organisation) add more without forking.
+Packs are installable bundles of additional rules, agents, skills, and playbooks. The built-in registry ships 757 rules — packs let the community (and your organisation) add more without forking.
 
 ### Installing a pack
 

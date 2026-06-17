@@ -33,6 +33,7 @@
     "interactive.ts",
     "interactive-init.ts",
     "fix.ts",
+    "ai-lint.ts",
     "rules/**/*.ts",
     "scanner/**/*.ts",
     "autopilot/**/*.ts",
