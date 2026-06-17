@@ -6,7 +6,7 @@
   "author": "Matt Holley",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TenticleTim/prometheus-fire.git",
+    "url": "git+https://github.com/TenticleTim/prometheus-fire.git",
     "directory": "prometheus"
   },
   "homepage": "https://github.com/TenticleTim/prometheus-fire#readme",
@@ -40,7 +40,7 @@
     "./config.schema.json": "./config.schema.json"
   },
   "bin": {
-    "prometheus": "./dist/cli.js"
+    "prometheus": "dist/cli.js"
   },
   "files": [
     "dist/",
