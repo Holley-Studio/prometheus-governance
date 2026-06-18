@@ -288,3 +288,25 @@ export interface PrometheusRule {
   explain?: RuleExplanation;
   detect(input: DetectInput): Finding[];
 }
+
+export interface ContextHealth {
+  score: number;
+  grade: 'A' | 'B' | 'C' | 'D' | 'F';
+  issues: string[];
+  contextAgeHours: number | null;
+  adaptersFresh: boolean;
+}
+
+export interface ContextCapsule {
+  project: string;
+  snapshotAt: string;
+  stack: string[];
+  patterns: string[];
+  constraints: string[];
+  governance: {
+    ruleCount: number;
+    lastCleanScan: string | null;
+    preset: string | null;
+  };
+  health: ContextHealth;
+}

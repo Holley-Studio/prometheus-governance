@@ -16,6 +16,7 @@ import { dirname, join } from 'node:path';
 import type { PrometheusConfig, Severity } from './types';
 import { injectGeneratedSection } from './output';
 import { SEVERITY_EMOJI, SEVERITY_ORDER } from './severity';
+import { generateContextCapsule, saveContextCapsule } from './context-capsule.js';
 export { PROMETHEUS_RULES } from './rules/registry';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -232,20 +233,21 @@ const ADAPTER_PREAMBLES: Record<AdapterTarget, (config: PrometheusConfig) => str
     '',
     '## Before Each Task',
     '',
-    '1. Read `.prometheus/README.md` for project architecture and current state.',
-    '2. Treat `.prometheus/GUARDRAILS.md` as mandatory — these constraints cannot be overridden.',
-    '3. Check `.prometheus/report.json` for current repo intelligence (routes, API auth gaps, large files, boundary risks).',
-    '4. For code review behavior, follow `.prometheus/governance/CODE_REVIEW.md`.',
-    '5. For AI review expectations, follow `.prometheus/governance/REVIEW_AGENT.md`.',
-    '6. Before creating pages, components, API routes, refactors, or build fixes, consult `.prometheus/playbooks/`.',
+    '1. Read `.prometheus/context.md` for current stack, established patterns, and active constraints.',
+    '2. Read `.prometheus/README.md` for project architecture and current state.',
+    '3. Treat `.prometheus/GUARDRAILS.md` as mandatory — these constraints cannot be overridden.',
+    '4. Check `.prometheus/report.json` for current repo intelligence (routes, API auth gaps, large files, boundary risks).',
+    '5. For code review behavior, follow `.prometheus/governance/CODE_REVIEW.md`.',
+    '6. For AI review expectations, follow `.prometheus/governance/REVIEW_AGENT.md`.',
+    '7. Before creating pages, components, API routes, refactors, or build fixes, consult `.prometheus/playbooks/`.',
     '',
     '## Behavioral Rules',
     '',
-    '7. Never bypass severity rules — BLOCKER findings must be addressed before continuing.',
-    '8. Never overwrite content outside `<!-- PROMETHEUS:GENERATED START … -->` / `<!-- PROMETHEUS:GENERATED END … -->` markers.',
-    '9. Prefer small, reversible, tested changes.',
-    `10. After changes, run the relevant Prometheus command (\`npm run prometheus:scan\`, \`prometheus:review\`, \`prometheus:validate\`, or \`prometheus:doctor\`).`,
-    '11. End each task by listing changed files and test results.',
+    '8. Never bypass severity rules — BLOCKER findings must be addressed before continuing.',
+    '9. Never overwrite content outside `<!-- PROMETHEUS:GENERATED START … -->` / `<!-- PROMETHEUS:GENERATED END … -->` markers.',
+    '10. Prefer small, reversible, tested changes.',
+    `11. After changes, run the relevant Prometheus command (\`npm run prometheus:scan\`, \`prometheus:review\`, \`prometheus:validate\`, or \`prometheus:doctor\`).`,
+    '12. End each task by listing changed files and test results.',
     '',
     '_Add project-specific context above the generated section._',
   ].join('\n'),
@@ -388,6 +390,12 @@ export function writeAllAdapters(
   ],
   catalog?: AdapterCatalog
 ): AdapterManifest[] {
+  // Auto-generate context snapshot alongside adapters so CLAUDE.md step 1 always has fresh data
+  try {
+    const capsule = generateContextCapsule(root);
+    saveContextCapsule(root, capsule);
+  } catch { /* non-fatal — context snapshot is advisory */ }
+
   return targets.map((target) => {
     const relPath = ADAPTER_OUTPUT_PATHS[target];
     const absPath = join(root, relPath);

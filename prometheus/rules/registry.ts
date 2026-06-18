@@ -53,6 +53,7 @@ import { GITHUB_ACTIONS_RULES } from './github-actions';
 import { TERRAFORM_RULES } from './terraform';
 import { GRAPHQL_RULES } from './graphql';
 import { DESIGN_RULES } from './design';
+import { DEBT_RULES } from './debt';
 
 // ── Local helpers (used inside detect() methods) ──────────────────────────────
 
@@ -637,4 +638,5 @@ export const PROMETHEUS_RULES: PrometheusRule[] = [
   ...TERRAFORM_RULES,
   ...GRAPHQL_RULES,
   ...DESIGN_RULES,
+  ...DEBT_RULES,
 ];

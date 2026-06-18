@@ -35,6 +35,11 @@ import { cmdPackCreate } from './commands/pack-create.ts';
 import { cmdPackPublish } from './commands/pack-publish.ts';
 import { cmdAutopilot } from './commands/autopilot.ts';
 import { cmdClaudeGovern } from './commands/claude-govern.ts';
+import { cmdImportScan } from './commands/import-scan.ts';
+import { cmdScope } from './commands/scope.ts';
+import { cmdTokens } from './commands/tokens.ts';
+import { cmdDebtScan } from './commands/debt.ts';
+import { cmdContext } from './commands/context.ts';
 
 const COMMANDS: Record<string, (argv: string[]) => Promise<void>> = {
   init: cmdInit,
@@ -91,7 +96,18 @@ const COMMANDS: Record<string, (argv: string[]) => Promise<void>> = {
   'claude:govern:install':  ()     => cmdClaudeGovern(['install']),
   'claude:govern:uninstall': ()    => cmdClaudeGovern(['uninstall']),
   'claude:govern:status':   ()     => cmdClaudeGovern(['status']),
-  'claude:govern:check':    ()     => cmdClaudeGovern(['check']),
+  'claude:govern:check':        ()     => cmdClaudeGovern(['check']),
+  'claude:govern:budget-check': ()     => cmdClaudeGovern(['budget-check']),
+  'import:scan':            (argv) => cmdImportScan(argv),
+  'scope:init':             (argv) => cmdScope(['init', ...argv]),
+  'scope:status':           ()     => cmdScope(['status']),
+  'scope:check':            (argv) => cmdScope(['check', ...argv]),
+  'tokens:report':          (argv) => cmdTokens(['report', ...argv]),
+  'tokens:reset':           (argv) => cmdTokens(['reset', ...argv]),
+  'tokens:budget':          (argv) => cmdTokens(['budget', ...argv]),
+  'debt:scan':              (argv) => cmdDebtScan(argv),
+  'context:snapshot':       (argv) => cmdContext(['snapshot', ...argv]),
+  'context:health':         (argv) => cmdContext(['health', ...argv]),
 };
 
 const argv = process.argv.slice(2); // ['command', ...flags]
@@ -125,6 +141,36 @@ CLAUDE CODE AUTO MODE  (real-time governance when Claude Code runs autonomously)
   claude:govern install    Install PreToolUse + Stop hooks into .claude/settings.json
   claude:govern uninstall  Remove governance hooks
   claude:govern status     Show hook installation state
+
+SUPPLY CHAIN SECURITY
+  import:scan              Check all package imports against npm and PyPI registries
+  import:scan --strict     Also flag packages < 30 days old and missing READMEs
+  import:scan --ci         Exit 1 on any BLOCKER (phantom) finding
+  import:scan [files...]   Scan specific files
+
+AGENT SCOPE ENFORCEMENT
+  scope:init               Scaffold .prometheus/scope.json with safe defaults
+  scope:status             Show current scope boundaries and operation limits
+  scope:check <path|cmd>   Test if a file path or command would be blocked
+
+TOKEN BUDGET GOVERNANCE
+  tokens:report            Show AI token usage by session / day / project
+  tokens:report --json     Machine-readable output
+  tokens:reset --session   Reset current session budget counter
+  tokens:reset --all       Clear all token usage logs
+  tokens:budget            Show current budget configuration
+
+AI DEBT FINGERPRINTING
+  debt:scan                Scan source files for AI-generated debt patterns (DEBT_001–020)
+  debt:scan <path>         Scan a specific file or directory
+  debt:scan --ci           Exit 1 on HIGH+ findings (CI gate)
+  debt:scan --json         Machine-readable output
+
+CONTEXT HEALTH + SESSION HANDOFF
+  context:snapshot         Generate .prometheus/context.md from current stack + patterns
+  context:health           Check freshness of context snapshot and adapter files
+  context:health --fail    Exit 1 if health score is below threshold (default 60)
+  context:health --json    Machine-readable JSON output
 
 REVIEW & VALIDATE
   review                   Run all rules, print findings
