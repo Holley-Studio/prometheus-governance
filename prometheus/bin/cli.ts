@@ -34,6 +34,7 @@ import { cmdAiLint } from './commands/ai-lint.ts';
 import { cmdPackCreate } from './commands/pack-create.ts';
 import { cmdPackPublish } from './commands/pack-publish.ts';
 import { cmdAutopilot } from './commands/autopilot.ts';
+import { cmdClaudeGovern } from './commands/claude-govern.ts';
 
 const COMMANDS: Record<string, (argv: string[]) => Promise<void>> = {
   init: cmdInit,
@@ -86,6 +87,11 @@ const COMMANDS: Record<string, (argv: string[]) => Promise<void>> = {
   'autopilot:generate': (argv) => cmdAutopilot(['generate', ...argv]),
   'autopilot:review':   (argv) => cmdAutopilot(['review', ...argv]),
   'autopilot:stats':    ()     => cmdAutopilot(['stats']),
+  'claude:govern':          (argv) => cmdClaudeGovern(argv),
+  'claude:govern:install':  ()     => cmdClaudeGovern(['install']),
+  'claude:govern:uninstall': ()    => cmdClaudeGovern(['uninstall']),
+  'claude:govern:status':   ()     => cmdClaudeGovern(['status']),
+  'claude:govern:check':    ()     => cmdClaudeGovern(['check']),
 };
 
 const argv = process.argv.slice(2); // ['command', ...flags]
@@ -114,6 +120,11 @@ HOOKS  (governance checks in git hooks — no extra dependencies)
   hooks install --husky    Install in .husky/ (committed, team-wide)
   hooks uninstall          Remove prometheus blocks from hooks
   hooks status             Show current hook state
+
+CLAUDE CODE AUTO MODE  (real-time governance when Claude Code runs autonomously)
+  claude:govern install    Install PreToolUse + Stop hooks into .claude/settings.json
+  claude:govern uninstall  Remove governance hooks
+  claude:govern status     Show hook installation state
 
 REVIEW & VALIDATE
   review                   Run all rules, print findings

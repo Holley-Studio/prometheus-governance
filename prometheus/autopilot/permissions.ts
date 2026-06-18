@@ -18,6 +18,7 @@ import {
   unlinkSync,
 } from 'node:fs';
 import { join, dirname } from 'node:path';
+import { extractGovernanceHooks, mergeGovernanceHooks, GOVERNANCE_VERSION } from '../claude-govern.js';
 
 const PERMISSION_ALLOW = [
   'Bash(git *)',
@@ -66,8 +67,12 @@ export function writePermissionProfile(root: string, sessionId: string): Permiss
     actualBackupPath = backupPath;
   }
 
-  // Write autopilot permission profile
-  const profile = {
+  // Read existing settings to extract governance hooks before overwriting
+  const existingSettings = readSettingsJson(settingsPath) ?? {};
+  const governanceHooks = extractGovernanceHooks(existingSettings);
+
+  // Write autopilot permission profile — preserving any installed governance hooks
+  let profile: Record<string, unknown> = {
     _autopilot_session: sessionId,
     _autopilot_restore: true,
     _autopilot_backup: actualBackupPath,
@@ -76,6 +81,11 @@ export function writePermissionProfile(root: string, sessionId: string): Permiss
       deny: [] as string[],
     },
   };
+
+  if (governanceHooks) {
+    profile['hooks'] = governanceHooks;
+    profile['_prometheus_governance'] = existingSettings['_prometheus_governance'] ?? GOVERNANCE_VERSION;
+  }
 
   writeFileSync(settingsPath, JSON.stringify(profile, null, 2) + '\n', 'utf8');
 
@@ -87,15 +97,25 @@ export function writePermissionProfile(root: string, sessionId: string): Permiss
 export function restorePermissions(root: string, backupPath: string | null): void {
   const settingsPath = findClaudeSettingsPath(root);
 
+  // Capture current governance hooks before restore overwrites them
+  const current = readSettingsJson(settingsPath) ?? {};
+  const governanceHooks = extractGovernanceHooks(current);
+
   if (backupPath && existsSync(backupPath)) {
     copyFileSync(backupPath, settingsPath);
     try { unlinkSync(backupPath); } catch { /* best effort */ }
   } else if (existsSync(settingsPath)) {
     // No backup = settings didn't exist before — remove the autopilot profile
-    const current = readSettingsJson(settingsPath);
-    if (current?.['_autopilot_restore']) {
+    if (current['_autopilot_restore']) {
       unlinkSync(settingsPath);
     }
+  }
+
+  // Re-inject governance hooks into the restored settings so they survive the session lifecycle
+  if (governanceHooks && existsSync(settingsPath)) {
+    const restored = readSettingsJson(settingsPath) ?? {};
+    const merged = mergeGovernanceHooks(restored);
+    writeFileSync(settingsPath, JSON.stringify(merged, null, 2) + '\n', 'utf8');
   }
 }
 
