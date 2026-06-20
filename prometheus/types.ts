@@ -166,6 +166,23 @@ export interface PrometheusConfig {
     generatedSections?: string[];
     riskyFilePatterns?: string[];
   };
+
+  commitLint?: {
+    enabled?: boolean;
+    types?: string[];
+    requireScope?: boolean;
+    maxSubjectLength?: number;
+    requireTicket?: boolean;
+    ticketPattern?: string;
+    allowedScopes?: string[];
+  };
+
+  vercel?: {
+    enabled?: boolean;
+    requiredEnvVars?: string[];
+    plan?: 'hobby' | 'pro' | 'enterprise';
+    requireCronAuth?: boolean;
+  };
 }
 
 export interface Finding {

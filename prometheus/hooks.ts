@@ -29,6 +29,8 @@ export interface HookInstallOptions {
   hooks?: HookName[];
   /** Preview only — do not write any files. */
   dryRun?: boolean;
+  /** Also install the commit-msg hook (Conventional Commits enforcement). */
+  commitMsg?: boolean;
 }
 
 export interface HookResult {
@@ -87,8 +89,9 @@ export function generateHookBlock(hook: HookName, base: string): string {
 
   if (hook === 'commit-msg') {
     lines.push(
-      '# Governance hook placeholder — no-op by default.',
-      '# Add custom commit message rules here.',
+      '# Validate commit message against Conventional Commits.',
+      '# Edit .prometheus/config.json commitLint section to customise allowed types.',
+      'npx --no-install prometheus commit:lint "$1"',
     );
   }
 

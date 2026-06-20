@@ -64,8 +64,8 @@ describe('registry structure', () => {
     }
   });
 
-  it('has exactly 844 rules (update this when adding new rules)', () => {
-    expect(PROMETHEUS_RULES).toHaveLength(844);
+  it('has exactly 864 rules (update this when adding new rules)', () => {
+    expect(PROMETHEUS_RULES).toHaveLength(864);
   });
 });
 

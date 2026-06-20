@@ -6,6 +6,23 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and 
 
 ---
 
+## [1.3.0] — 2026-06-20
+
+### Added
+
+- **Conventional Commits Governance** (`prometheus commit:lint`, `prometheus commit:create`) — 10 new COMMIT_001–010 rules validate commit messages against the Conventional Commits specification using the standard `detect()` sentinel pattern (path `.git/COMMIT_EDITMSG`). Rules integrate with `explain`, `baseline`, and `suppressions:audit` automatically. `commit:lint` validates messages from the `commit-msg` hook, `--last`, or `--message "..."`. `commit:create` is an interactive wizard for building valid commit messages step-by-step.
+- **Vercel Deployment Governance** (`prometheus vercel:lint`) — 10 new VERCEL_001–010 rules covering: literal secrets in `vercel.json` (BLOCKER), server secrets with `NEXT_PUBLIC_` prefix (BLOCKER), cron routes missing `CRON_SECRET` check (HIGH), env vars not documented in `.env.example` (HIGH), missing `.env.example` when env vars are used (HIGH), missing `maxDuration` in function config (MEDIUM), middleware missing edge runtime export (MEDIUM), missing security headers (MEDIUM), `maxDuration` exceeding plan limit (LOW), and open redirect patterns in redirects config (HIGH).
+- **`commit-msg` git hook enforcement** — `prometheus hooks install --commit-msg` now writes a real enforcement block calling `prometheus commit:lint "$1"`. Previously a no-op placeholder.
+- **`commitLint` and `vercel` config sections** in `PrometheusConfig` — customise allowed commit types, max subject length, ticket patterns, Vercel plan limits, and cron auth requirements via `.prometheus/config.json`.
+- Total rule count: **864** (844 previous + 10 COMMIT + 10 VERCEL).
+
+### Changed
+
+- `generateHookBlock('commit-msg')` now generates a real enforcement script instead of a placeholder comment.
+- `HookInstallOptions` gains optional `commitMsg?: boolean` field; `hooks install --commit-msg` installs the `commit-msg` hook alongside `pre-commit` and `pre-push`.
+
+---
+
 ## [1.2.0] — 2026-06-18
 
 ### Added

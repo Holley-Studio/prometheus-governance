@@ -573,5 +573,62 @@ export function registerCommands(
     }),
   );
 
+  // ── prometheus.commitLint ──────────────────────────────────────────────────
+
+  disposables.push(
+    vscode.commands.registerCommand('prometheus.commitLint', async () => {
+      const cfg = getConfig();
+      if (!cfg.enable) return;
+
+      await vscode.window.withProgress(
+        {
+          location: vscode.ProgressLocation.Notification,
+          title: 'Prometheus: Linting last commit message…',
+          cancellable: false,
+        },
+        async () => {
+          try {
+            await runPrometheus(workspaceRoot, ['commit:lint', '--last'], cfg.binaryPath || undefined);
+            void vscode.window.showInformationMessage('Prometheus: Commit message is valid.');
+          } catch (err) {
+            handleError(err);
+          }
+        },
+      );
+    }),
+  );
+
+  // ── prometheus.commitCreate ────────────────────────────────────────────────
+
+  disposables.push(
+    vscode.commands.registerCommand('prometheus.commitCreate', () => {
+      const cfg = getConfig();
+      if (!cfg.enable) return;
+
+      const terminal = vscode.window.createTerminal({
+        name: 'Prometheus: Commit Wizard',
+        cwd: workspaceRoot,
+      });
+      terminal.sendText('prometheus commit:create');
+      terminal.show();
+    }),
+  );
+
+  // ── prometheus.vercelLint ──────────────────────────────────────────────────
+
+  disposables.push(
+    vscode.commands.registerCommand('prometheus.vercelLint', () => {
+      const cfg = getConfig();
+      if (!cfg.enable) return;
+
+      const terminal = vscode.window.createTerminal({
+        name: 'Prometheus: Vercel Lint',
+        cwd: workspaceRoot,
+      });
+      terminal.sendText('prometheus vercel:lint');
+      terminal.show();
+    }),
+  );
+
   return vscode.Disposable.from(...disposables);
 }

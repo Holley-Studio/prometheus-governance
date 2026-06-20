@@ -2,7 +2,7 @@
   "name": "prometheus-governance-vscode",
   "displayName": "Prometheus Governance",
   "description": "Real-time AI repo governance — inline findings, health scores, and adapter sync for Claude, Gemini, Cursor, Copilot, and Codex.",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "publisher": "holley-studios",
   "author": {
     "name": "Holley Studios"
@@ -168,6 +168,24 @@
         "title": "Show Token Budget Config",
         "category": "Prometheus",
         "icon": "$(credit-card)"
+      },
+      {
+        "command": "prometheus.commitLint",
+        "title": "Lint Last Commit Message",
+        "category": "Prometheus",
+        "icon": "$(git-commit)"
+      },
+      {
+        "command": "prometheus.commitCreate",
+        "title": "Create Commit (Guided Wizard)",
+        "category": "Prometheus",
+        "icon": "$(add)"
+      },
+      {
+        "command": "prometheus.vercelLint",
+        "title": "Lint Vercel Deployment Config",
+        "category": "Prometheus",
+        "icon": "$(cloud)"
       }
     ],
     "views": {

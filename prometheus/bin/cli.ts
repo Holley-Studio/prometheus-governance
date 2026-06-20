@@ -40,6 +40,8 @@ import { cmdScope } from './commands/scope.ts';
 import { cmdTokens } from './commands/tokens.ts';
 import { cmdDebtScan } from './commands/debt.ts';
 import { cmdContext } from './commands/context.ts';
+import { cmdCommitLint, cmdCommitCreate } from './commands/commit-lint.ts';
+import { cmdVercelLint } from './commands/vercel-lint.ts';
 
 const COMMANDS: Record<string, (argv: string[]) => Promise<void>> = {
   init: cmdInit,
@@ -106,6 +108,9 @@ const COMMANDS: Record<string, (argv: string[]) => Promise<void>> = {
   'tokens:reset':           (argv) => cmdTokens(['reset', ...argv]),
   'tokens:budget':          (argv) => cmdTokens(['budget', ...argv]),
   'debt:scan':              (argv) => cmdDebtScan(argv),
+  'commit:lint':            (argv) => cmdCommitLint(argv),
+  'commit:create':          (argv) => cmdCommitCreate(argv),
+  'vercel:lint':            (argv) => cmdVercelLint(argv),
   'context:snapshot':       (argv) => cmdContext(['snapshot', ...argv]),
   'context:health':         (argv) => cmdContext(['health', ...argv]),
 };

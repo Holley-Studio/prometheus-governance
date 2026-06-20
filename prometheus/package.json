@@ -1,6 +1,6 @@
 {
   "name": "prometheus-governance",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "AI-stack-agnostic repo governance: code review rules, CI gates, and adapter generation for Claude, Gemini, Cursor, Copilot, Codex, and AGENTS.md",
   "license": "SEE LICENSE IN LICENSE",
   "author": "Matt Holley",
@@ -119,7 +119,10 @@
     "prometheus:tokens:budget":           "tsx bin/cli.ts tokens:budget",
     "prometheus:debt:scan":               "tsx bin/cli.ts debt:scan",
     "prometheus:context:snapshot":        "tsx bin/cli.ts context:snapshot",
-    "prometheus:context:health":          "tsx bin/cli.ts context:health"
+    "prometheus:context:health":          "tsx bin/cli.ts context:health",
+    "prometheus:commit:lint":             "tsx bin/cli.ts commit:lint",
+    "prometheus:commit:create":           "tsx bin/cli.ts commit:create",
+    "prometheus:vercel:lint":             "tsx bin/cli.ts vercel:lint"
   },
   "optionalDependencies": {
     "lightningcss-linux-x64-gnu": "1.32.0",

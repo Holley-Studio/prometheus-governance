@@ -31,10 +31,13 @@ export async function cmdHooks(argv: string[]): Promise<void> {
   const { flags } = parseArgs(rest);
 
   const target: HookTarget = flag(flags, 'husky') ? 'husky' : 'git';
-  const base    = flagVal(flags, 'base')    ?? 'origin/main';
-  const dryRun  = flag(flags, 'dry-run');
-  const json    = flag(flags, 'json');
-  const hooks: HookName[] = ['pre-commit', 'pre-push'];
+  const base       = flagVal(flags, 'base') ?? 'origin/main';
+  const dryRun     = flag(flags, 'dry-run');
+  const json       = flag(flags, 'json');
+  const commitMsg  = flag(flags, 'commit-msg');
+  const hooks: HookName[] = commitMsg
+    ? ['pre-commit', 'pre-push', 'commit-msg']
+    : ['pre-commit', 'pre-push'];
 
   if (subcommand === 'status') {
     const status = getHookStatus(root, target, hooks);

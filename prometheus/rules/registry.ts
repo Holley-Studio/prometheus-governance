@@ -54,6 +54,8 @@ import { TERRAFORM_RULES } from './terraform';
 import { GRAPHQL_RULES } from './graphql';
 import { DESIGN_RULES } from './design';
 import { DEBT_RULES } from './debt';
+import { COMMIT_RULES } from './commits';
+import { VERCEL_RULES } from './vercel';
 
 // ── Local helpers (used inside detect() methods) ──────────────────────────────
 
@@ -639,4 +641,7 @@ export const PROMETHEUS_RULES: PrometheusRule[] = [
   ...GRAPHQL_RULES,
   ...DESIGN_RULES,
   ...DEBT_RULES,
+  // ── Commit + Deployment governance ───────────────────────────────────────────
+  ...COMMIT_RULES,
+  ...VERCEL_RULES,
 ];
