@@ -82,7 +82,7 @@ TEXT ON SCREEN: "Your team shipped it."
 TEXT ON SCREEN: "Nobody checked."
 [Sound: terminal keystrokes. Screen lights up.]
 
-[DEMO: Terminal window. `prometheus validate` running.]
+[DEMO: Terminal window. `thesmos validate` running.]
 VO (calm, no sales energy): "Prometheus is a governance layer for AI-generated code."
 [Screen: 911 rules listed, scanning at speed]
 VO: "911 rules. Runs in your CI pipeline. Works with Claude, Copilot, Cursor — whatever your team uses."
@@ -92,13 +92,13 @@ VO: "It catches what your review process misses."
 [Screen: Finding ID, explanation, fix suggestion]
 VO: "And it explains exactly why."
 
-[DEMO: Green checkmark. `prometheus certificate:generate` running. Certificate PDF appears.]
+[DEMO: Green checkmark. `thesmos certificate:generate` running. Certificate PDF appears.]
 VO: "Every clean build gets a governance certificate."
 
-[DEMO: `npm install -g prometheus-governance` — installs in 8 seconds]
+[DEMO: `npm install -g thesmos-governance` — installs in 8 seconds]
 VO: "Zero config. One install."
 
-[END CARD: prometheus-governance / GitHub link]
+[END CARD: thesmos-governance / GitHub link]
 VO: "Prometheus. Ship AI code you'd sign your name to."
 ```
 
