@@ -23,7 +23,7 @@
 import { createInterface } from 'node:readline';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { PROMETHEUS_RULES } from './rules/registry.js';
+import { THESMOS_RULES } from './rules/registry.js';
 import { runReview } from './review.js';
 import { findRule } from './explain.js';
 import { computeHealthForRoot } from './health.js';
@@ -304,7 +304,7 @@ function handleDebugFinding(
   params: { rule_id: string; file_content: string; line?: number },
 ): unknown {
   const config = (() => { try { return loadConfig(root); } catch { return CONFIG_DEFAULTS; } })();
-  const rule = PROMETHEUS_RULES.find((r) => r.id === params.rule_id);
+  const rule = THESMOS_RULES.find((r) => r.id === params.rule_id);
   if (!rule) {
     return { error: `Unknown rule: ${params.rule_id}. Use explain_rule to list available rules.` };
   }
@@ -374,7 +374,7 @@ function handleCheckModelCost(params: { tokens: number }): unknown {
 
 function handleResourceRead(root: string, uri: string): unknown {
   if (uri === 'thesmos://rules') {
-    return PROMETHEUS_RULES.map((r) => ({
+    return THESMOS_RULES.map((r) => ({
       id: r.id,
       category: r.category,
       severity: r.severity,
@@ -516,7 +516,7 @@ function dispatch(root: string, request: JsonRpcRequest): JsonRpcResponse {
 export function startMcpServer(root: string): void {
   const rl = createInterface({ input: process.stdin, terminal: false });
 
-  log.info('server started', { rules: PROMETHEUS_RULES.length });
+  log.info('server started', { rules: THESMOS_RULES.length });
 
   rl.on('line', (line) => {
     const trimmed = line.trim();

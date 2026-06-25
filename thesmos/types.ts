@@ -294,6 +294,8 @@ export interface DetectInput {
   scan: ScanResult;
   config: ThesmosConfig;
   changedFiles?: ChangedFile[];
+  /** Workspace root — used by rules that need filesystem checks. Defaults to process.cwd() when not provided. */
+  root?: string;
 }
 
 export interface RuleExplanation {

@@ -17,7 +17,7 @@ All notable changes to the Thesmos Governance VS Code extension are documented h
 - Agent Scope commands (`thesmos.scopeInit`, `thesmos.scopeStatus`, `thesmos.scopeCheck`)
 
 ### Changed
-- Renamed from `prometheus-governance` to `thesmos-governance` (package and publisher namespace)
+- Renamed from `thesmos-governance` to `thesmos-governance` (package and publisher namespace)
 - Extension ID is now `holley-studios.thesmos-governance-vscode`
 - Activity Bar icon updated to Θ (Thesmos brand)
 
@@ -45,7 +45,7 @@ All notable changes to the Thesmos Governance VS Code extension are documented h
 ## [1.0.0] - 2026-06-15
 
 ### Added
-- Initial release under `prometheus-governance` publisher
+- Initial release under `thesmos-governance` publisher
 - Findings panel with inline governance violations
 - `scan`, `reviewFile`, `openConfig`, `refreshFindings` commands
 - `thesmos.enable`, `thesmos.runOnSave`, `thesmos.debounceMs`, `thesmos.showStatusBar`, `thesmos.binaryPath` settings

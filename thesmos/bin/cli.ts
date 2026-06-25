@@ -1,5 +1,5 @@
 /**
- * Prometheus CLI entry point.
+ * Thesmos CLI entry point.
  * Dispatches to command handlers; each handler is a thin wrapper over core modules.
  *
  * Usage:  vite-node bin/cli.ts <command> [flags] [files...]
@@ -361,7 +361,7 @@ GDPR COMPLIANCE
     --write                              Write to .thesmos/compliance-gdpr.md
     --output=<path>                      Write to custom path
 
-PROMETHEUS PANTHEON  (governed AI business team — 21 agents, 6 platforms)
+THESMOS PANTHEON  (governed AI business team — 21 agents, 6 platforms)
   pantheon:list                       List all 21 agents with roles and mythology
   pantheon:install --all              Add all agents to .thesmos/registry.json
   pantheon:install <id> [id...]       Install specific agents

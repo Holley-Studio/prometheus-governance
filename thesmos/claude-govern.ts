@@ -1,6 +1,6 @@
 /**
  * Claude Code governance hooks — intercepts Write/Edit/Bash tool calls in Auto Mode
- * and blocks BLOCKER-severity Prometheus violations before they land on disk.
+ * and blocks BLOCKER-severity Thesmos violations before they land on disk.
  *
  * Integration points:
  *   1. `thesmos claude:govern install` — writes hooks to .claude/settings.json
@@ -19,7 +19,7 @@ import {
   mkdirSync,
 } from 'node:fs';
 import { join, dirname, extname } from 'node:path';
-import { PROMETHEUS_RULES } from './rules/registry.js';
+import { THESMOS_RULES } from './rules/registry.js';
 import { loadConfig, CONFIG_DEFAULTS } from './config.js';
 import { extractInstallPackages, quickPhantomCheck } from './import-scan.js';
 import { checkScope } from './scope.js';
@@ -385,7 +385,7 @@ export async function runPreToolCheck(root: string): Promise<void> {
   }
 
   // Run only BLOCKER-severity rules
-  const blockerRules = PROMETHEUS_RULES.filter((r) => r.severity === 'BLOCKER');
+  const blockerRules = THESMOS_RULES.filter((r) => r.severity === 'BLOCKER');
 
   const detectInput: DetectInput = {
     scan: emptyScan(),

@@ -1,5 +1,5 @@
 /**
- * Prometheus auto-fix engine.
+ * Thesmos auto-fix engine.
  *
  * Architecture:
  *   - FIXERS registry: pure functions (content + finding → patched content | null)
@@ -19,7 +19,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { Finding, ThesmosConfig, ScanResult } from './types.js';
-import { PROMETHEUS_RULES } from './rules/registry.js';
+import { THESMOS_RULES } from './rules/registry.js';
 import { runReview } from './review.js';
 import { makeLogger } from './logger.js';
 
@@ -821,7 +821,7 @@ export interface VerifyResult {
 }
 
 /**
- * Re-runs Prometheus rules on before/after content to confirm a fix worked.
+ * Re-runs Thesmos rules on before/after content to confirm a fix worked.
  *
  * findingResolved: the original finding no longer fires on the patched content.
  * newFindingsIntroduced: any findings present in after but not in before.
@@ -834,7 +834,7 @@ export function verifyFix(
   originalFinding: Finding,
   config: ThesmosConfig,
 ): VerifyResult {
-  const rule = PROMETHEUS_RULES.find((r) => r.category === originalFinding.category);
+  const rule = THESMOS_RULES.find((r) => r.category === originalFinding.category);
   if (!rule) {
     return { originalFinding, fixApplied: true, findingResolved: true, newFindingsIntroduced: [], safe: true };
   }

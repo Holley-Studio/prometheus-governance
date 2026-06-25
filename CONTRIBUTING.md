@@ -74,7 +74,7 @@ thesmos/
 │   ├── commands/           # One file per CLI command
 │   └── lib/                # CLI utilities (arg parser, git helpers)
 ├── rules/
-│   ├── registry.ts         # PROMETHEUS_RULES — single source of truth
+│   ├── registry.ts         # THESMOS_RULES — single source of truth
 │   ├── security.ts         # Security rules
 │   ├── typescript.ts       # TypeScript rules
 │   ├── react.ts            # React rules
@@ -137,7 +137,7 @@ export const MY_NEW_RULE: ThesmosRule = {
 };
 ```
 
-3. **Export it from the category file** and add it to the `PROMETHEUS_RULES` array in `rules/registry.ts`.
+3. **Export it from the category file** and add it to the `THESMOS_RULES` array in `rules/registry.ts`.
 
 4. **Write a test.** Add a case in the relevant `*.test.ts` file:
 

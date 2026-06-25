@@ -383,16 +383,32 @@ async function startLspClient(
     const { LanguageClient, TransportKind } = await import('vscode-languageclient/node');
 
     // Resolve the thesmos binary to use as the LSP server.
-    // Prefer a local project install, fall back to the global CLI.
+    // VS Code launched from the Dock doesn't inherit nvm PATH, so extend it
+    // with common node version manager locations before spawning the server.
+    const home = process.env.HOME ?? process.env.USERPROFILE ?? '';
+    const extraPaths = [
+      `${home}/.nvm/versions/node/v20.20.2/bin`,
+      `${home}/.nvm/versions/node/v22.0.0/bin`,
+      `${home}/.nvm/versions/node/v24.0.0/bin`,
+      `${home}/.nvm/versions/node/v18.0.0/bin`,
+      `${home}/.volta/bin`,
+      `${home}/.fnm/aliases/default/bin`,
+      '/opt/homebrew/bin',
+      '/usr/local/bin',
+    ];
+    const enhancedPath = [...extraPaths, process.env.PATH ?? ''].join(process.platform === 'win32' ? ';' : ':');
+    const serverEnv = { ...process.env, PATH: enhancedPath };
+
     const serverCommand = 'npx';
     const serverArgs = ['thesmos', 'lsp', '--root', workspaceRoot];
+    const serverOpts = { env: serverEnv };
 
     lspClient = new LanguageClient(
       'thesmos-lsp',
       'Thesmos Language Server',
       {
-        run:   { command: serverCommand, args: serverArgs, transport: TransportKind.stdio },
-        debug: { command: serverCommand, args: [...serverArgs, '--debug'], transport: TransportKind.stdio },
+        run:   { command: serverCommand, args: serverArgs, transport: TransportKind.stdio, options: serverOpts },
+        debug: { command: serverCommand, args: [...serverArgs, '--debug'], transport: TransportKind.stdio, options: serverOpts },
       },
       {
         documentSelector: [

@@ -284,7 +284,7 @@ function exportAgentsMd(agents: PantheonAgent[]): string {
 // ── pantheon:list ──────────────────────────────────────────────────────────────
 
 function cmdList(agents: PantheonAgent[]): void {
-  console.log('\n  THE PROMETHEUS PANTHEON — 21 Governed AI Business Agents\n');
+  console.log('\n  THE THESMOS PANTHEON — 21 Governed AI Business Agents\n');
   console.log(`  ${'GOD'.padEnd(16)} ${'ROLE'.padEnd(36)} VERSION`);
   console.log(`  ${''.padEnd(16, '─')} ${''.padEnd(36, '─')} ${''.padEnd(7, '─')}`);
   for (const a of agents) {
