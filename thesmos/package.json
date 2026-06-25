@@ -52,7 +52,11 @@
   ],
   "mcp": {
     "command": "npx",
-    "args": ["thesmos-governance", "mcp", "--stdio"],
+    "args": [
+      "thesmos-governance",
+      "mcp",
+      "--stdio"
+    ],
     "description": "Thesmos Governance MCP Server — repo governance tools for Claude, Cursor, Windsurf, and Codex"
   },
   "type": "module",
@@ -136,22 +140,22 @@
     "thesmos:autopilot:generate": "tsx bin/cli.ts autopilot:generate",
     "thesmos:autopilot:review": "tsx bin/cli.ts autopilot:review",
     "thesmos:autopilot:stats": "tsx bin/cli.ts autopilot:stats",
-    "thesmos:claude:govern:install":   "tsx bin/cli.ts claude:govern install",
+    "thesmos:claude:govern:install": "tsx bin/cli.ts claude:govern install",
     "thesmos:claude:govern:uninstall": "tsx bin/cli.ts claude:govern uninstall",
-    "thesmos:claude:govern:status":    "tsx bin/cli.ts claude:govern status",
-    "thesmos:import:scan":             "tsx bin/cli.ts import:scan",
-    "thesmos:scope:init":              "tsx bin/cli.ts scope:init",
-    "thesmos:scope:status":            "tsx bin/cli.ts scope:status",
-    "thesmos:scope:check":             "tsx bin/cli.ts scope:check",
-    "thesmos:tokens:report":           "tsx bin/cli.ts tokens:report",
-    "thesmos:tokens:reset":            "tsx bin/cli.ts tokens:reset",
-    "thesmos:tokens:budget":           "tsx bin/cli.ts tokens:budget",
-    "thesmos:debt:scan":               "tsx bin/cli.ts debt:scan",
-    "thesmos:context:snapshot":        "tsx bin/cli.ts context:snapshot",
-    "thesmos:context:health":          "tsx bin/cli.ts context:health",
-    "thesmos:commit:lint":             "tsx bin/cli.ts commit:lint",
-    "thesmos:commit:create":           "tsx bin/cli.ts commit:create",
-    "thesmos:vercel:lint":             "tsx bin/cli.ts vercel:lint"
+    "thesmos:claude:govern:status": "tsx bin/cli.ts claude:govern status",
+    "thesmos:import:scan": "tsx bin/cli.ts import:scan",
+    "thesmos:scope:init": "tsx bin/cli.ts scope:init",
+    "thesmos:scope:status": "tsx bin/cli.ts scope:status",
+    "thesmos:scope:check": "tsx bin/cli.ts scope:check",
+    "thesmos:tokens:report": "tsx bin/cli.ts tokens:report",
+    "thesmos:tokens:reset": "tsx bin/cli.ts tokens:reset",
+    "thesmos:tokens:budget": "tsx bin/cli.ts tokens:budget",
+    "thesmos:debt:scan": "tsx bin/cli.ts debt:scan",
+    "thesmos:context:snapshot": "tsx bin/cli.ts context:snapshot",
+    "thesmos:context:health": "tsx bin/cli.ts context:health",
+    "thesmos:commit:lint": "tsx bin/cli.ts commit:lint",
+    "thesmos:commit:create": "tsx bin/cli.ts commit:create",
+    "thesmos:vercel:lint": "tsx bin/cli.ts vercel:lint"
   },
   "optionalDependencies": {
     "lightningcss-linux-x64-gnu": "1.32.0",
@@ -159,11 +163,11 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.10",
-    "@types/node": "^26.0.0",
+    "@types/node": "^26.0.1",
     "@vitest/coverage-v8": "^4.1.9",
     "tsup": "^8.5.1",
-    "typescript": "^6.0.3",
     "tsx": "^4.19.0",
+    "typescript": "^6.0.3",
     "vitest": "^4.1.9"
   }
 }
