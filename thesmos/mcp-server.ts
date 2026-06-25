@@ -33,6 +33,7 @@ import type { Finding, ScanResult, DetectInput } from './types.js';
 import { makeLogger } from './logger.js';
 import { buildBudgetReport, calcCost, getCurrentSessionId, TOKEN_BUDGET_DEFAULTS } from './token-budget.js';
 import { logMcpBlock, logMcpPass, logRuleFire } from './governance-log.js';
+import { getAutoModeGovernanceInfo } from './claude-govern.js';
 
 const log = makeLogger('mcp');
 
@@ -137,6 +138,15 @@ const TOOL_DEFINITIONS = [
         tokens: { type: 'number', description: 'Estimated total token count (input + output combined)' },
       },
       required: ['tokens'],
+    },
+  },
+  {
+    name: 'get_governance_status',
+    description:
+      'Returns current Auto Mode governance status: whether Thesmos hooks are installed, which severity levels are blocked, and a plain-English summary. Call this at the start of any Auto Mode or autonomous agent session to verify governance is active.',
+    inputSchema: {
+      type: 'object',
+      properties: {},
     },
   },
   {
@@ -475,6 +485,11 @@ function dispatch(root: string, request: JsonRpcRequest): JsonRpcResponse {
             const cp = toolInput as { tool: string; path: string; session?: string };
             const result = checkPathEnforcement(root, cp.tool, cp.path, cp.session);
             return respond({ content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] });
+          }
+          case 'get_governance_status': {
+            const gsConfig = (() => { try { return loadConfig(root) as unknown as Record<string, unknown>; } catch { return {} as Record<string, unknown>; } })();
+            const status = getAutoModeGovernanceInfo(root, gsConfig);
+            return respond({ content: [{ type: 'text', text: JSON.stringify(status, null, 2) }] });
           }
           default:
             return error(-32601, `Unknown tool: ${name}`);

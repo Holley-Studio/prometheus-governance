@@ -72,6 +72,13 @@ export const CONFIG_DEFAULTS: ThesmosConfig = {
   reportMaxAgeDays: 30,
   protectedBranches: ['main'],
 
+  autoMode: {
+    enabled: true,
+    strictMode: true,
+    blockOn: 'HIGH' as const,
+    notifyOnBlock: true,
+  },
+
   doctor: {
     reportMaxAgeDays: 7,
     requiredScripts: [

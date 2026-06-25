@@ -176,6 +176,37 @@ export function getGovernanceHooksStatus(root: string): GovernanceHookStatus {
   };
 }
 
+// ── Auto Mode governance info ─────────────────────────────────────────────────
+
+export interface AutoModeGovernanceInfo {
+  governed: boolean;
+  hooksInstalled: GovernanceHookStatus;
+  blockOn: string;
+  strictMode: boolean;
+  message: string;
+}
+
+/**
+ * Returns a summary of Auto Mode governance status for MCP / VS Code use.
+ * Called by the `get_governance_status` MCP tool and the VS Code autoModeGovernor.
+ */
+export function getAutoModeGovernanceInfo(root: string, config?: Record<string, unknown>): AutoModeGovernanceInfo {
+  const status = getGovernanceHooksStatus(root);
+  const autoModeCfg = (config?.['autoMode'] ?? {}) as Record<string, unknown>;
+  const enabled    = autoModeCfg['enabled']     !== false;
+  const strictMode = autoModeCfg['strictMode']  !== false;
+  const blockOn    = (autoModeCfg['blockOn'] as string | undefined) ?? (strictMode ? 'HIGH' : 'BLOCKER');
+  const governed   = enabled && status.installed;
+
+  const message = governed
+    ? `Auto Mode is governed — Thesmos blocks ${blockOn}+ violations before every Write/Edit/Bash.`
+    : status.installed
+      ? 'Hooks installed but autoMode.enabled is false — Auto Mode is not governed.'
+      : 'Auto Mode is NOT governed. Run: thesmos claude:govern install';
+
+  return { governed, hooksInstalled: status, blockOn, strictMode, message };
+}
+
 // ── Merge / extract (used by permissions.ts to preserve hooks) ────────────────
 
 /**

@@ -15,6 +15,12 @@
     "dist"
   ],
   "largeFileThreshold": 500,
+  "autoMode": {
+    "enabled": true,
+    "strictMode": true,
+    "blockOn": "HIGH",
+    "notifyOnBlock": true
+  },
   "criticalLibPaths": [],
   "requiredFiles": [
     ".thesmos/README.md",

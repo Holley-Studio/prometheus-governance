@@ -27,6 +27,7 @@ import { StatusBarManager } from './statusBar.js';
 import { FindingsTreeProvider } from './treeView.js';
 import { AutopilotWatcher } from './autopilotWatcher.js';
 import { AutopilotTreeProvider } from './autopilotView.js';
+import { AutoModeGovernor } from './autoModeGovernor.js';
 import { registerCommands } from './commands.js';
 import { ThesmosHoverProvider } from './hover.js';
 import { ThesmosCodeActionProvider } from './codeAction.js';
@@ -64,6 +65,7 @@ class ThesmosExtension implements vscode.Disposable {
   private readonly treeProvider: FindingsTreeProvider;
   private readonly autopilotWatcher: AutopilotWatcher;
   private readonly autopilotView: AutopilotTreeProvider;
+  private readonly autoModeGovernor: AutoModeGovernor;
 
   private workspaceRoot: string;
   private allFindings: Finding[] = [];
@@ -80,6 +82,7 @@ class ThesmosExtension implements vscode.Disposable {
     this.treeProvider = new FindingsTreeProvider();
     this.autopilotWatcher = new AutopilotWatcher(workspaceRoot);
     this.autopilotView = new AutopilotTreeProvider(workspaceRoot, this.autopilotWatcher);
+    this.autoModeGovernor = new AutoModeGovernor(workspaceRoot);
 
     this.disposables.push(
       this.diagnostics,
@@ -87,6 +90,7 @@ class ThesmosExtension implements vscode.Disposable {
       this.treeProvider,
       this.autopilotWatcher,
       this.autopilotView,
+      this.autoModeGovernor,
     );
 
     // Update status bar when autopilot session state changes
@@ -100,6 +104,27 @@ class ThesmosExtension implements vscode.Disposable {
       const taskLabel = `${completed}/${total > 0 ? total : '?'} tasks`;
       this.statusBar.showAutopilotSession(taskLabel, this.autopilotWatcher.isCancelling);
     });
+
+    // Surface governance status when .claude/settings.json changes
+    this.autoModeGovernor.onDidChange((state) => {
+      if (state.governed) {
+        this.statusBar.showGoverningAutoMode();
+      } else if (state.hooksInstalled === false) {
+        this.statusBar.clearGoverningAutoMode();
+      } else {
+        this.statusBar.showAutoModeUngoverned();
+      }
+    });
+
+    // Apply initial governance state
+    const initialState = this.autoModeGovernor.state;
+    if (initialState.governed) {
+      this.statusBar.showGoverningAutoMode();
+    } else if (!initialState.hooksInstalled) {
+      // No hooks and no .claude/settings.json — silently do nothing (common for new projects)
+    } else {
+      this.statusBar.showAutoModeUngoverned();
+    }
   }
 
   async activate(): Promise<void> {
