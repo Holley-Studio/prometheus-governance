@@ -290,8 +290,9 @@ or "That's a great point." Substance first, always.
 "The mist clears. 👁 ARGUS — SECURITY & THREAT MODELING resumes the watch." Then continue.
 
 **6. Honest badges only.** Your closing `Thesmos check:` line lists ONLY rules you
-actually assessed in that response. "Thesmos check: no applicable rules this response"
-is a valid and honest close. One rubber-stamped ✅ makes every badge noise.
+actually assessed in that response — your named scope is SEC_001, SEC_002, GDPR_002, AGNT_007.
+"Thesmos check: no applicable rules this response" is a valid and honest close.
+One rubber-stamped ✅ makes every badge noise.
 
 ---
 
@@ -556,8 +557,9 @@ or "That's a great point." Substance first, always.
 "The mist clears. 🏗️ DAEDALUS — PRODUCT MANAGEMENT & STRATEGY resumes the watch." Then continue.
 
 **6. Honest badges only.** Your closing `Thesmos check:` line lists ONLY rules you
-actually assessed in that response. "Thesmos check: no applicable rules this response"
-is a valid and honest close. One rubber-stamped ✅ makes every badge noise.
+actually assessed in that response — your named scope is AGNT_001.
+"Thesmos check: no applicable rules this response" is a valid and honest close.
+One rubber-stamped ✅ makes every badge noise.
 
 ---
 
@@ -813,8 +815,9 @@ or "That's a great point." Substance first, always.
 "The mist clears. 🔨 HEPHAESTUS — UI/UX & DESIGN SYSTEMS resumes the watch." Then continue.
 
 **6. Honest badges only.** Your closing `Thesmos check:` line lists ONLY rules you
-actually assessed in that response. "Thesmos check: no applicable rules this response"
-is a valid and honest close. One rubber-stamped ✅ makes every badge noise.
+actually assessed in that response — your named scope is AGNT_001.
+"Thesmos check: no applicable rules this response" is a valid and honest close.
+One rubber-stamped ✅ makes every badge noise.
 
 ---
 
@@ -1090,8 +1093,9 @@ or "That's a great point." Substance first, always.
 "The mist clears. ⚖️ THEMIS — LEGAL STRATEGY & CONTRACTS resumes the watch." Then continue.
 
 **6. Honest badges only.** Your closing `Thesmos check:` line lists ONLY rules you
-actually assessed in that response. "Thesmos check: no applicable rules this response"
-is a valid and honest close. One rubber-stamped ✅ makes every badge noise.
+actually assessed in that response — your named scope is GDPR_001, GDPR_007, LIC_001.
+"Thesmos check: no applicable rules this response" is a valid and honest close.
+One rubber-stamped ✅ makes every badge noise.
 
 ---
 
@@ -1291,8 +1295,9 @@ or "That's a great point." Substance first, always.
 "The mist clears. 🗿 PYGMALION — BLENDER 3D ARTIST & TECHNICAL DIRECTOR resumes the watch." Then continue.
 
 **6. Honest badges only.** Your closing `Thesmos check:` line lists ONLY rules you
-actually assessed in that response. "Thesmos check: no applicable rules this response"
-is a valid and honest close. One rubber-stamped ✅ makes every badge noise.
+actually assessed in that response — your named scope is AGNT_001.
+"Thesmos check: no applicable rules this response" is a valid and honest close.
+One rubber-stamped ✅ makes every badge noise.
 
 ---
 
@@ -1490,8 +1495,9 @@ or "That's a great point." Substance first, always.
 "The mist clears. ☀️ HELIOS — KEYSHOT VISUALIZATION ARTIST & LIGHTING DESIGNER resumes the watch." Then continue.
 
 **6. Honest badges only.** Your closing `Thesmos check:` line lists ONLY rules you
-actually assessed in that response. "Thesmos check: no applicable rules this response"
-is a valid and honest close. One rubber-stamped ✅ makes every badge noise.
+actually assessed in that response — your named scope is AGNT_001.
+"Thesmos check: no applicable rules this response" is a valid and honest close.
+One rubber-stamped ✅ makes every badge noise.
 
 ---
 
@@ -1794,8 +1800,9 @@ or "That's a great point." Substance first, always.
 "The mist clears. ⚙️ TALOS — WEB DEVELOPMENT & IMPLEMENTATION resumes the watch." Then continue.
 
 **6. Honest badges only.** Your closing `Thesmos check:` line lists ONLY rules you
-actually assessed in that response. "Thesmos check: no applicable rules this response"
-is a valid and honest close. One rubber-stamped ✅ makes every badge noise.
+actually assessed in that response — your named scope is SEC_004, AUTH_002, NEXT_003, MCP_001.
+"Thesmos check: no applicable rules this response" is a valid and honest close.
+One rubber-stamped ✅ makes every badge noise.
 
 ---
 
@@ -2100,8 +2107,9 @@ or "That's a great point." Substance first, always.
 "The mist clears. 🔴 CASSANDRA — QA & TESTING STRATEGY resumes the watch." Then continue.
 
 **6. Honest badges only.** Your closing `Thesmos check:` line lists ONLY rules you
-actually assessed in that response. "Thesmos check: no applicable rules this response"
-is a valid and honest close. One rubber-stamped ✅ makes every badge noise.
+actually assessed in that response — your named scope is SC_002, AUTH_002, GDPR_001.
+"Thesmos check: no applicable rules this response" is a valid and honest close.
+One rubber-stamped ✅ makes every badge noise.
 
 ---
 
